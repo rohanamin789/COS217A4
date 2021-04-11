@@ -1,0 +1,48 @@
++run
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad1 
+
+Program received signal SIGABRT, Aborted.
+0x0000ffffbe5f50e8 in raise () from /lib64/libc.so.6
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
++break main
+Breakpoint 1 at 0x40272c: file bdt_client.c, line 22.
++run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad1 
+
+Breakpoint 1, main () at bdt_client.c:22
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:22:814:beg:0x40272c
++next
+
+Program received signal SIGABRT, Aborted.
+0x0000ffffbe5f50e8 in raise () from /lib64/libc.so.6
++break BDT_getPath
+Function "BDT_getPath" not defined.
+Make breakpoint pending on future shared library load? (y or [n]) +break BDT_containsPath
+Breakpoint 1 at 0x4021f0: file bdtBad1.c, line 330.
++run
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad1 
+
+Program received signal SIGABRT, Aborted.
+0x0000ffffbe5f50e8 in raise () from /lib64/libc.so.6
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
++break BDT_insertPath
+Breakpoint 2 at 0x402198: file bdtBad1.c, line 320.
++run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad1 
+
+Breakpoint 2, BDT_insertPath (path=0x403620 "a/b/c") at bdtBad1.c:320
+/u/cos217/Assignment4/bdtBad1.c:320:8186:beg:0x402198
++next
+/u/cos217/Assignment4/bdtBad1.c:322:8212:beg:0x4021c4
++next
+/u/cos217/Assignment4/bdtBad1.c:323:8246:beg:0x4021d0
++next
+/u/cos217/Assignment4/bdtBad1.c:324:8290:beg:0x4021dc
++next
+
+Program received signal SIGABRT, Aborted.
+0x0000ffffbe5f50e8 in raise () from /lib64/libc.so.6
++exit
+Undefined command: "exit".  Try "help".
