@@ -22,8 +22,10 @@ struct node {
    /* the parent directory of this directory
       NULL for the root of the directory tree */
    Node_T parent;
+   void* contents;
+   size_t length;
+   boolean status; 
 
-   File_T* files; 
 
    /* the subdirectories of this directory
       stored in sorted order by pathname */
@@ -61,13 +63,13 @@ static char* Node_buildPath(Node_T n, const char* dir) {
    return path;
 }
 
-/* ajksdfh */ 
-File_T Node_addFile(const char* dir, Node_T parent,
+/* ajksdfh */
+Node_T Node_addFile(const char* dir, Node_T parent,
                     void* contents, size_t length){
-   File_T new;
+   Node_T new;
    assert (parent == NULL);
    assert (dir != NULL);
-   new = malloc(sizeof(struct fileNode));
+   new = malloc(sizeof(struct node));
    if (new == NULL)
       return NULL;
    new->path = Node_buildPath(parent,dir);
@@ -75,10 +77,11 @@ File_T Node_addFile(const char* dir, Node_T parent,
       free(new);
       return NULL;
    }
+   new->status = TRUE; 
    new->parent = parent;
    new->contents = contens;
    new->length = length;
-   DynArray_addAt(parent->files, parent->fileLength, new);
+   new->children = NULL; 
    return new; 
    
 }
@@ -89,14 +92,16 @@ Node_T Node_create(const char* dir, Node_T parent){
    assert(parent == NULL || CheckerDT_Node_isValid(parent));
    assert(dir != NULL);
 
-   new = malloc(sizeof(struct directoryNode));
+   new = malloc(sizeof(struct node));
    if(new == NULL) {
       assert(parent == NULL || CheckerDT_Node_isValid(parent));
       return NULL;
    }
 
    new->path = Node_buildPath(parent, dir);
-
+   new->status = FALSE; 
+   new->contents = NULL;
+   new->length = NULL; 
    if(new->path == NULL) {
       free(new);
       assert(parent == NULL || CheckerDT_Node_isValid(parent));
@@ -119,24 +124,19 @@ Node_T Node_create(const char* dir, Node_T parent){
 
 /* see node.h for specification */
 size_t Node_destroy(Node_T n) {
-   size_t i,j;
+   size_t i;
    size_t count = 0;
    Node_T c;
 
    assert(n != NULL);
-
+   
    for(i = 0; i < DynArray_getLength(n->children); i++)
    {
       c = DynArray_get(n->children, i);
-      if (DynArray_getLength(c->files) != 0){
-         for (j = 0; j < DynArray_getLength(c->files); j++){
-            DynArray_free(c->files); 
-         }
-      }
       count += Node_destroy(c);
    }
-   DynArray_free(n->children);
-
+   if (n->children != NULL)
+      DynArray_free(n->children);
    free(n->path);
    free(n);
    count++;
@@ -154,6 +154,8 @@ size_t Node_destroy(Node_T n) {
    return strcpy(pathCopy, n->path);
 }
 */
+
+
 const char* Node_getPath(Node_T n) {
    assert(n != NULL);
 
@@ -171,6 +173,7 @@ int Node_compare(Node_T node1, Node_T node2) {
 /* see node.h for specification */
 size_t Node_getNumChildren(Node_T n) {
    assert(n != NULL);
+   assert (n->children != NULL); 
 
    return DynArray_getLength(n->children);
 }
@@ -218,7 +221,7 @@ Node_T Node_getParent(Node_T n) {
 }
 
 
-////***////
+/* 
 int Node_linkFile(Node_T parent, File_T child) {
    size_t i;
    char* rest;
@@ -273,7 +276,7 @@ int Node_linkFile(Node_T parent, File_T child) {
 }
 
 
-
+*/
 
 /* see node.h for specification */
 int Node_linkChild(Node_T parent, Node_T child) {
