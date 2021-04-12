@@ -1,4 +1,4 @@
-/*--------------------------------------------------------------------*/
+*--------------------------------------------------------------------*/
 /* checkerDT.c                                                        */
 /* Author:                                                            */
 /*--------------------------------------------------------------------*/
@@ -17,7 +17,6 @@ boolean CheckerDT_Node_isValid(Node_T n) {
    const char* ppath;
    const char* rest;
    size_t i;
-   size_t childCount;
 
    /* Sample check: a NULL pointer is not a valid node */
    if(n == NULL) {
@@ -88,10 +87,10 @@ static boolean CheckerDT_treeCheck(Node_T n) {
 
          /* Check that Parent-Child links are correct */
          if (Node_getParent(child) != n) {
-            fprintf(stderr, "Children does not have link to correct
-            parent\n");
-                        return FALSE
-                           }
+            fprintf(stderr,
+                    "Children does not have link to correct parent\n");
+            return FALSE;
+         }
 
          /* if recurring down one subtree results in a failed check
             farther down, passes the failure back up immediately */
@@ -102,25 +101,15 @@ static boolean CheckerDT_treeCheck(Node_T n) {
    return TRUE;
 }
 
-/*
-   Performs a pre-order traversal of the tree rooted at n.
-   Returns FALSE if the number of nodes in the tree does 
-   not match count, and returns TRUE otherwise.
-*/
-static boolean CheckerDT_treeCountCheck(Node_T n, size_t count) {
-   size_t c = CheckerDT_nodeCount(n);
-   if (c == count) return TRUE;
-   fprintf(stderr, "count does not match number of nodes in tree\n");
-   else return FALSE;
-}
-
 /* 
    Performs a pre-order traversal of the tree rooted at n.
    Returns the number of nodes within that tree.
 */
 static size_t CheckerDT_nodeCount(Node_T n) {
+   size_t c;
    size_t count;
-   if (n = NULL) return 0;
+
+   if (n == NULL) return 0;
    else count = 1;
 
    for(c = 0; c < Node_getNumChildren(n); c++) {
@@ -130,6 +119,19 @@ static size_t CheckerDT_nodeCount(Node_T n) {
    }
 
    return count;
+}
+
+/*
+   Performs a pre-order traversal of the tree rooted at n.
+   Returns FALSE if the number of nodes in the tree does 
+   not match count, and returns TRUE otherwise.
+*/
+static boolean CheckerDT_treeCountCheck(Node_T n, size_t count) {
+   size_t c;
+   c = CheckerDT_nodeCount(n);
+   if (c == count) return TRUE;
+   fprintf(stderr, "count does not match number of nodes in tree\n");
+   return FALSE;
 }
 
 /* 
@@ -152,8 +154,8 @@ static size_t CheckerDT_orderCheck(Node_T n) {
          /* if recurring down one subtree results in a failed check
             farther down, passes the failure back up immediately */
          if(compare >= 0) {
-            fprintf(stderr, "Children do not follow lexicographic 
-            order\n");
+            fprintf(stderr,
+                    "Children do not follow lexicographic order\n");
             return FALSE;
          }
       }
