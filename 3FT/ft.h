@@ -14,7 +14,8 @@
 
 #include <stddef.h>
 #include "a4def.h"
-
+#include "node.h"
+#include "dynarray.h" 
 
 /*
    Inserts a new directory into the tree at path, if possible.

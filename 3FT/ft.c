@@ -10,36 +10,15 @@
 
 #include <assert.h>
 #include <string.h>
-#include <stdio.h>
+#include <stdlib.h>
 
 
 static boolean isInitialized;
 static Node_T root;
 static size_t count;
 
-struct node {
-   /* the absolute path of the directory */
-   char* path;
 
-   /* links to child directories, each NULL if there is no such child.
-      invariant: if child1 == NULL, child2 == NULL. */
-   DynArray_T children;
-   DynArray_T files;
-   size_t length;
-   boolean file; 
-   void* contents; 
 
-   /* link to this directory's parent directory, or NULL if the root */
-   Node_T parent;
-};
-
-/* struct fileNode{
-   char* path;
-   void* contents; 
-   size_t length;
-   Node_T parent; 
-}; */
-   
 
 /*
    Alternate version of strlen that uses pAcc as an in-out parameter
@@ -65,6 +44,17 @@ static void DT_strcatAccumulate(char* str, char* acc) {
       strcat(acc, str); strcat(acc, "\n");
 }
 
+static int FT_linkParentToChild(Node_T parent, Node_T child){
+   assert (parent != NULL);
+   assert(parent->status != TRUE); 
+
+   if(Node_linkChild(parent,child) != SUCCESS) {
+      (void) Node_destroy(child);
+      return PARENT_CHILD_ERROR;
+   }
+
+   return SUCCESS;
+}
 
 static int FT_appendFiles(char* path, Node_T parent,
                           void* contents, size_t length){
@@ -204,17 +194,7 @@ static int FT_insertRestOfPath(char* path, Node_T parent){
 }
 
 
-static int FT_linkParentToChild(Node_T parent, Node_T child){
-   assert (parent != NULL);
-   assert(parent->status != TRUE); 
 
-   if(Node_linkChild(parent,child) != SUCCESS) {
-      (void) Node_destroy(child);
-      return PARENT_CHILD_ERROR;
-   }
-
-   return SUCCESS;
-}
 
 
 
@@ -262,29 +242,6 @@ static int FT_rmPathAt(char* path, Node_T curr){
    else
       return NO_SUCH_PATH;
 }
-
-
-static int FT_rmPathAt(char* path, Node_T curr){
-   Node_T parent;
-   assert(path != NULL);
-   assert(curr != NULL);
-   parent = Node_getParent(curr);
-
-   if (!strcmp(path, Node_getPath(curr))){
-      if(parent == NULL)
-         root = NULL;
-      else
-         Node_unlinkChild(parent, curr);
-      FT_removePathFrom(curr);
-
-      return SUCCESS;
-
-   }
-   else
-      return NO_SUCH_PATH;
-}
-
-
 
 
 static void FT_removePathFrom(Node_T curr) {
