@@ -15,7 +15,7 @@
 #include <stddef.h>
 #include "a4def.h"
 
-typedef struct node *Node; 
+
 /*
    Inserts a new directory into the tree at path, if possible.
    Returns SUCCESS if the new directory is inserted.
@@ -26,8 +26,7 @@ typedef struct node *Node;
    Returns PARENT_CHILD_ERROR if a new child cannot be added in path.
    Returns MEMORY_ERROR if unable to allocate sufficient memory.
 */
-int FT_insertDir(char *path){
-}
+int FT_insertDir(char *path);
 
 /*
   Returns TRUE if the tree contains the full path parameter as a

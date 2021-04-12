@@ -23,6 +23,7 @@ struct node {
       NULL for the root of the directory tree */
    Node_T parent;
    void* contents;
+
    size_t length;
    boolean status; 
 
