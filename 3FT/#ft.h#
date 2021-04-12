@@ -15,7 +15,9 @@
 #include <stddef.h>
 #include "a4def.h"
 
-typedef struct node *Node; 
+typedef struct node *Node;
+
+
 /*
    Inserts a new directory into the tree at path, if possible.
    Returns SUCCESS if the new directory is inserted.
@@ -27,8 +29,43 @@ typedef struct node *Node;
    Returns MEMORY_ERROR if unable to allocate sufficient memory.
 */
 int FT_insertDir(char *path){
+   Node_T curr;
+   int result;
+   assert(path != null);
+
+   if (!isInitialized)
+      return INITIALIZATION_ERROR;
+   curr = DT_traversePath(path);
+   result = DT_insertRestOfPath(path,curr);
+   return result; 
 }
 
+
+static Node_T FT_traversePath(char* path, Node_T curr) {
+   Node_T found;
+   size_t i;
+   assert (path != NULL);
+   if(curr == NULL)
+      return NULL;
+   else if ((!strcmp(path,Node_getPath(curr)))){
+           return curr;
+      }
+   else if (!strncmp(path,Node_getPath(curr), strlen(Node_getPath(curr)))){
+      for(i = 0; i < Node_getNumChildren(curr); i++){
+         found = FT_traversePathFrom(path,Node_getChild(curr,i));
+         if(found != NULL)
+            return found;
+      }
+      return curr;
+    }
+    return NULL;                                                          
+}
+
+static Node_getNumChildren(Node_T curr);
+
+static Node_getPath(Node_T curr){
+   return curr->path;
+}
 /*
   Returns TRUE if the tree contains the full path parameter as a
   directory and FALSE otherwise.
