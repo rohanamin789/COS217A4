@@ -141,17 +141,17 @@ static size_t CheckerDT_orderCheck(Node_T n) {
 
    if(n != NULL) {
 
-      for(c = 0; c < Node_getNumChildren(n) - 1; c++)
-      {
-         compare = Node_compare(Node_getChild(n, c),
-                                Node_getChild(n, c + 1));
+      if(Node_getNumChildren(n) > 1) {
+         for(c = 0; c < Node_getNumChildren(n) - 1; c++)
+         {
+            compare = Node_compare(Node_getChild(n, c),
+                                   Node_getChild(n, c + 1));
 
-         /* if recurring down one subtree results in a failed check
-            farther down, passes the failure back up immediately */
-         if(compare >= 0) {
-            fprintf(stderr,
-                    "Children do not follow lexicographic order\n");
-            return FALSE;
+            if(compare >= 0) {
+               fprintf(stderr,
+                       "Children do not follow lexicographic order\n");
+               return FALSE;
+            }
          }
       }
 
