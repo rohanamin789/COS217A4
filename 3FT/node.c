@@ -64,13 +64,33 @@ static char* Node_buildPath(Node_T n, const char* dir) {
    return path;
 }
 
+void Node_changeFileContents(Node_T n, void* newContents,
+                             size_t newLength){
+   n->contents = newContents;
+   n->length = newLength; 
+}
+
+boolean Node_getStatus(Node_T n){
+   return n->status;
+}
+
+void *Node_getFileContents(Node_T n){
+   assert (n->status == TRUE);
+   return n->contents; 
+}
+
+size_t Node_getFileLength(Node_T n){
+   assert (n->status == TRUE);
+   return n->length; 
+}
+
 /* ajksdfh */
 Node_T Node_addFile(const char* dir, Node_T parent,
                     void* contents, size_t length){
    Node_T new;
    assert (parent == NULL);
    assert (dir != NULL);
-   new = malloc(sizeof(struct node));
+   new = (Node_T) malloc(sizeof(struct node)); 
    if (new == NULL)
       return NULL;
    new->path = Node_buildPath(parent,dir);
@@ -80,7 +100,7 @@ Node_T Node_addFile(const char* dir, Node_T parent,
    }
    new->status = TRUE; 
    new->parent = parent;
-   new->contents = contens;
+   new->contents = contents;
    new->length = length;
    new->children = NULL; 
    return new; 
@@ -93,7 +113,7 @@ Node_T Node_create(const char* dir, Node_T parent){
    assert(parent == NULL || CheckerDT_Node_isValid(parent));
    assert(dir != NULL);
 
-   new = malloc(sizeof(struct node));
+   new = (Node_T) malloc(sizeof(struct node));
    if(new == NULL) {
       assert(parent == NULL || CheckerDT_Node_isValid(parent));
       return NULL;
@@ -102,7 +122,7 @@ Node_T Node_create(const char* dir, Node_T parent){
    new->path = Node_buildPath(parent, dir);
    new->status = FALSE; 
    new->contents = NULL;
-   new->length = NULL; 
+   new->length = 0; 
    if(new->path == NULL) {
       free(new);
       assert(parent == NULL || CheckerDT_Node_isValid(parent));

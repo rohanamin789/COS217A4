@@ -39,6 +39,14 @@ Node_T Node_create(const char* dir, Node_T parent);
 */
 size_t Node_destroy(Node_T n);
 
+void Node_changeFileContents(Node_T n,
+                             void* newContents, size_t newLength); 
+
+boolean Node_getStatus(Node_T n);
+
+void *Node_getFileContents(Node_T n); 
+
+size_t Node_getFileLength(Node_T n);
 
 /*
   Compares node1 and node2 based on their paths.
