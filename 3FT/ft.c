@@ -344,7 +344,7 @@ boolean FT_containsDir(char *path){
       return FALSE;
    else if(strcmp(path,Node_getPath(curr)))
       result = FALSE;
-   else if (Node_getStatus(curr) == FALSE) return FALSE; 
+   else if (Node_getStatus(curr) != FALSE) return FALSE; 
    else
       result = TRUE;
    return result; 
@@ -421,7 +421,11 @@ boolean FT_containsFile(char *path){
    if(curr == NULL)
       result = FALSE;
    else if(strcmp(path, Node_getPath(curr)))
-      result = FALSE; 
+      result = FALSE;
+   else if(Node_getStatus(curr) != TRUE){
+      result = FALSE;
+      return result; 
+   }
    else
       result = TRUE;
    return result; 
