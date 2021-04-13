@@ -106,18 +106,19 @@ static boolean CheckerDT_treeCheck(Node_T n) {
    Returns the number of nodes within that tree.
 */
 static size_t CheckerDT_nodeCount(Node_T n) {
-      size+t
-         size_t count;
-      if (n == NULL) return 0;
-      else count = 1;
+   size_t c;
+   size_t count;
 
-      for(c = 0; c < Node_getNumChildren(n); c++) {
-         Node_T child = Node_getChild(n, c);
+   if (n == NULL) return 0;
+   else count = 1;
 
-         count += CheckerDT_nodeCount(child);
-      }
+   for(c = 0; c < Node_getNumChildren(n); c++) {
+      Node_T child = Node_getChild(n, c);
 
-      return count;
+      count += CheckerDT_nodeCount(child);
+   }
+
+   return count;
 }
 
 /*
@@ -153,8 +154,8 @@ static size_t CheckerDT_orderCheck(Node_T n) {
          /* if recurring down one subtree results in a failed check
             farther down, passes the failure back up immediately */
          if(compare >= 0) {
-            fprintf(stderr, "Children do not follow lexicographic 
-            order\n");
+            fprintf(stderr,
+                    "Children do not follow lexicographic order\n");
             return FALSE;
          }
       }
