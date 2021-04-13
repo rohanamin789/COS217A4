@@ -59,6 +59,13 @@ static void DT_strcatAccumulate(char* str, char* acc) {
       strcat(acc, str); strcat(acc, "\n");
 }
 
+/*
+   Given a prospective parent and child node,
+   adds child to parent's children list, if possible
+   If not possible, destroys the hierarchy rooted at child
+   and returns PARENT_CHILD_ERROR, otherwise, returns SUCCESS.
+*/
+
 static int FT_linkParentToChild(Node_T parent, Node_T child){
    assert (parent != NULL);
    if (Node_getStatus(parent) == TRUE) return NOT_A_DIRECTORY; 
@@ -71,13 +78,27 @@ static int FT_linkParentToChild(Node_T parent, Node_T child){
    return SUCCESS;
 }
 
+/*
+   Destroys the entire hierarchy of nodes rooted at curr,
+   including curr itself.
+*/
+
 static void FT_removePathFrom(Node_T curr) {
    if(curr != NULL) {
       count -= Node_destroy(curr);
    }
 }
 
-
+/*
+   Inserts a new file with contents (contents) and a length (length) 
+   into the tree rooted at parent.
+   If a node representing path already exists, returns ALREADY_IN_TREE
+   If there is an allocation error in creating any of the new nodes or
+   their fields, returns MEMORY_ERROR
+   If there is an error linking any of the new nodes,
+   returns PARENT_CHILD_ERROR
+   Otherwise, returns SUCCESS
+*/
 static int FT_appendFiles(char* path, Node_T parent,
                           void* contents, size_t length){
    Node_T curr; 
@@ -113,6 +134,8 @@ static int FT_appendFiles(char* path, Node_T parent,
    while (dirToken != NULL){
       temp = dirToken;
       dirToken = strtok(NULL, "/");
+      /* When adding a file, only the last token
+         in the directory is the file */
       if (dirToken == NULL)
          new = Node_addFile(temp, curr, contents, length); 
       else{
@@ -151,7 +174,16 @@ static int FT_appendFiles(char* path, Node_T parent,
       return result;
    }        
 }
-
+/*
+   Inserts a new path into the tree rooted at parent, or, if
+   parent is NULL, as the root of the data structure.
+   If a node representing path already exists, returns ALREADY_IN_TREE
+   If there is an allocation error in creating any of the new nodes or
+   their fields, returns MEMORY_ERROR
+   If there is an error linking any of the new nodes,
+   returns PARENT_CHILD_ERROR
+   Otherwise, returns SUCCESS
+*/
 static int FT_insertRestOfPath(char* path, Node_T parent){
    Node_T curr; 
    Node_T firstNew = NULL;
@@ -219,6 +251,12 @@ static int FT_insertRestOfPath(char* path, Node_T parent){
       return result;
    }
 }
+/*
+  Removes the directory hierarchy rooted at path starting from
+  curr. If curr is the data structure's root, root becomes NULL.
+  Returns NO_SUCH_PATH if curr is not the node for path,
+  and SUCCESS otherwise.
+*/
 
 static int FT_rmPathAt(char* path, Node_T curr){
    Node_T parent;
@@ -244,8 +282,14 @@ static int FT_rmPathAt(char* path, Node_T curr){
 
 
 
-
-
+/*
+   Starting at the parameter curr, traverses as far down
+   the hierarchy as possible while still matching the path
+   parameter.
+   Returns a pointer to the farthest matching node down that path,
+   or NULL if there is no node in curr's hierarchy that matches
+   a prefix of the path
+*/
 static Node_T FT_traversePathFrom(char* path, Node_T curr) {
    Node_T found;
    size_t i;
@@ -265,7 +309,11 @@ static Node_T FT_traversePathFrom(char* path, Node_T curr) {
    }
    return NULL; 
 }
-
+/*
+   Returns the farthest node reachable from the root following a given
+   path, or NULL if there is no node in the hierarchy that matches a
+   prefix of the path.
+*/
 
 static Node_T FT_traversePath(char* path){
    assert(path != NULL);
