@@ -1,0 +1,425 @@
++break BDT_toString
+Breakpoint 1 at 0x402680: file bdtBad5.c, line 467.
++run
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad5 
+
+Breakpoint 1, BDT_toString () at bdtBad5.c:467
+/u/cos217/Assignment4/bdtBad5.c:467:11679:beg:0x402680
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
++next
+/u/cos217/Assignment4/bdtBad5.c:468:11730:beg:0x402688
++next
+/u/cos217/Assignment4/bdtBad5.c:470:11755:beg:0x40268c
++next
+/u/cos217/Assignment4/bdtBad5.c:471:11777:beg:0x4026a0
++next
+/u/cos217/Assignment4/bdtBad5.c:491:12270:beg:0x40273c
++next
+main () at bdt_client.c:29
+warning: Source file is more recent than executable.
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:29:1151:beg:0x4027e8
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:30:1184:beg:0x402814
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:31:1230:beg:0x402848
++next
+
+Breakpoint 1, BDT_toString () at bdtBad5.c:467
+/u/cos217/Assignment4/bdtBad5.c:467:11679:beg:0x402680
++next
+/u/cos217/Assignment4/bdtBad5.c:468:11730:beg:0x402688
++next
+/u/cos217/Assignment4/bdtBad5.c:470:11755:beg:0x40268c
++next
+/u/cos217/Assignment4/bdtBad5.c:473:11797:beg:0x4026a8
++next
+/u/cos217/Assignment4/bdtBad5.c:474:11831:beg:0x4026c0
++next
+/u/cos217/Assignment4/bdtBad5.c:476:11881:beg:0x4026d8
++next
+
+Program received signal SIGABRT, Aborted.
+0x0000ffffbe5f50e8 in raise () from /lib64/libc.so.6
++run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) 
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad5 
+
+Breakpoint 1, BDT_toString () at bdtBad5.c:467
+/u/cos217/Assignment4/bdtBad5.c:467:11679:beg:0x402680
++next
+/u/cos217/Assignment4/bdtBad5.c:468:11730:beg:0x402688
++next
+/u/cos217/Assignment4/bdtBad5.c:470:11755:beg:0x40268c
++next
+/u/cos217/Assignment4/bdtBad5.c:471:11777:beg:0x4026a0
++next
+/u/cos217/Assignment4/bdtBad5.c:491:12270:beg:0x40273c
++next
+main () at bdt_client.c:29
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:29:1151:beg:0x4027e8
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:30:1184:beg:0x402814
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:31:1230:beg:0x402848
++next
+
+Breakpoint 1, BDT_toString () at bdtBad5.c:467
+/u/cos217/Assignment4/bdtBad5.c:467:11679:beg:0x402680
++next
+/u/cos217/Assignment4/bdtBad5.c:468:11730:beg:0x402688
++next
+/u/cos217/Assignment4/bdtBad5.c:470:11755:beg:0x40268c
++next
+/u/cos217/Assignment4/bdtBad5.c:473:11797:beg:0x4026a8
++next
+/u/cos217/Assignment4/bdtBad5.c:474:11831:beg:0x4026c0
++next
+/u/cos217/Assignment4/bdtBad5.c:476:11881:beg:0x4026d8
++step
+DynArray_map (oDynArray=0x430010, pfApply=0x402544 <BDT_strlenAccumulate>, 
+    pvExtra=0xfffffffff088) at dynarray.c:246
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:246:6201:beg:0x40134c
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:247:6231:beg:0x401378
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:248:6259:beg:0x4013a4
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x4013d4
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
++step
+BDT_strlenAccumulate (str=0x0, pAcc=0xfffffffff088) at bdtBad5.c:440
+/u/cos217/Assignment4/bdtBad5.c:440:10909:beg:0x402558
++next
+
+Program received signal SIGABRT, Aborted.
+0x0000ffffbe5f50e8 in raise () from /lib64/libc.so.6
++run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) 
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad5 
+
+Breakpoint 1, BDT_toString () at bdtBad5.c:467
+/u/cos217/Assignment4/bdtBad5.c:467:11679:beg:0x402680
++next
+/u/cos217/Assignment4/bdtBad5.c:468:11730:beg:0x402688
++next
+/u/cos217/Assignment4/bdtBad5.c:470:11755:beg:0x40268c
++next
+/u/cos217/Assignment4/bdtBad5.c:471:11777:beg:0x4026a0
++next
+/u/cos217/Assignment4/bdtBad5.c:491:12270:beg:0x40273c
++next
+main () at bdt_client.c:29
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:29:1151:beg:0x4027e8
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:30:1184:beg:0x402814
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:31:1230:beg:0x402848
++step
+
+Breakpoint 1, BDT_toString () at bdtBad5.c:467
+/u/cos217/Assignment4/bdtBad5.c:467:11679:beg:0x402680
++next
+/u/cos217/Assignment4/bdtBad5.c:468:11730:beg:0x402688
++next
+/u/cos217/Assignment4/bdtBad5.c:470:11755:beg:0x40268c
++next
+/u/cos217/Assignment4/bdtBad5.c:473:11797:beg:0x4026a8
++next
+/u/cos217/Assignment4/bdtBad5.c:474:11831:beg:0x4026c0
++next
+/u/cos217/Assignment4/bdtBad5.c:476:11881:beg:0x4026d8
++step
+DynArray_map (oDynArray=0x430010, pfApply=0x402544 <BDT_strlenAccumulate>, 
+    pvExtra=0xfffffffff088) at dynarray.c:246
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:246:6201:beg:0x40134c
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:247:6231:beg:0x401378
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:248:6259:beg:0x4013a4
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x4013d4
++step
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
++step
+BDT_strlenAccumulate (str=0x0, pAcc=0xfffffffff088) at bdtBad5.c:440
+/u/cos217/Assignment4/bdtBad5.c:440:10909:beg:0x402558
++next
+
+Program received signal SIGABRT, Aborted.
+0x0000ffffbe5f50e8 in raise () from /lib64/libc.so.6
++break BDT_newNode
+Breakpoint 2 at 0x401b40: file bdtBad5.c, line 64.
++clear BDT_toString
+Deleted breakpoint 1 
++run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) 
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad5 
+
+Program received signal SIGABRT, Aborted.
+0x0000ffffbe5f50e8 in raise () from /lib64/libc.so.6
++next
+Single stepping until exit from function raise,
+which has no line number information.
+
+Program terminated with signal SIGABRT, Aborted.
+The program no longer exists.
++run
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad5 
+
+Program received signal SIGABRT, Aborted.
+0x0000ffffbe5f50e8 in raise () from /lib64/libc.so.6
++run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) 
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad5 
+
+Program received signal SIGABRT, Aborted.
+0x0000ffffbe5f50e8 in raise () from /lib64/libc.so.6
++break 45
+Breakpoint 1 at 0x4029b8: file bdt_client.c, line 45.
++run
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad5 
+
+Program received signal SIGABRT, Aborted.
+0x0000ffffbe5f50e8 in raise () from /lib64/libc.so.6
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
++break BDT_insertPath
+Breakpoint 1 at 0x402198: file bdtBad5.c, line 320.
++run
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad5 
+
+Breakpoint 1, BDT_insertPath (path=0x403640 "a/b/c") at bdtBad5.c:320
+/u/cos217/Assignment4/bdtBad5.c:320:8186:beg:0x402198
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
++next
+/u/cos217/Assignment4/bdtBad5.c:322:8212:beg:0x4021c4
++next
+/u/cos217/Assignment4/bdtBad5.c:323:8234:beg:0x4021d8
++next
+/u/cos217/Assignment4/bdtBad5.c:326:8347:beg:0x4021f8
++next
+main () at bdt_client.c:23
+warning: Source file is more recent than executable.
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:23:881:beg:0x402780
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:24:927:beg:0x4027b4
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:29:1151:beg:0x4027e8
++step
+BDT_init () at bdtBad5.c:397
+/u/cos217/Assignment4/bdtBad5.c:397:9757:beg:0x4023f8
++next
+/u/cos217/Assignment4/bdtBad5.c:399:9813:beg:0x402414
++next
+/u/cos217/Assignment4/bdtBad5.c:400:9835:beg:0x402424
++next
+/u/cos217/Assignment4/bdtBad5.c:401:9851:beg:0x402430
++next
+/u/cos217/Assignment4/bdtBad5.c:402:9865:beg:0x40243c
++next
+/u/cos217/Assignment4/bdtBad5.c:403:9884:beg:0x402440
++next
+main () at bdt_client.c:30
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:30:1184:beg:0x402814
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:31:1230:beg:0x402848
++next
+
+Program received signal SIGABRT, Aborted.
+0x0000ffffbe5f50e8 in raise () from /lib64/libc.so.6
++break BDT_toString
+Breakpoint 1 at 0x402680: file bdtBad5.c, line 467.
++run
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad5 
+
+Breakpoint 1, BDT_toString () at bdtBad5.c:467
+/u/cos217/Assignment4/bdtBad5.c:467:11679:beg:0x402680
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
++next
+/u/cos217/Assignment4/bdtBad5.c:468:11730:beg:0x402688
++next
+/u/cos217/Assignment4/bdtBad5.c:470:11755:beg:0x40268c
++next
+/u/cos217/Assignment4/bdtBad5.c:471:11777:beg:0x4026a0
++next
+/u/cos217/Assignment4/bdtBad5.c:491:12270:beg:0x40273c
++next
+main () at bdt_client.c:29
+warning: Source file is more recent than executable.
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:29:1151:beg:0x4027e8
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:30:1184:beg:0x402814
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:31:1230:beg:0x402848
++step
+
+Breakpoint 1, BDT_toString () at bdtBad5.c:467
+/u/cos217/Assignment4/bdtBad5.c:467:11679:beg:0x402680
++next
+/u/cos217/Assignment4/bdtBad5.c:468:11730:beg:0x402688
++next
+/u/cos217/Assignment4/bdtBad5.c:470:11755:beg:0x40268c
++next
+/u/cos217/Assignment4/bdtBad5.c:473:11797:beg:0x4026a8
++step
+DynArray_new (uLength=1) at dynarray.c:84
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:84:2239:beg:0x400ab8
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:85:2305:beg:0x400ac4
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:88:2351:beg:0x400ad8
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:89:2384:beg:0x400ae4
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:92:2466:beg:0x400b04
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:95:2540:beg:0x400b10
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:94:2515:beg:0x400b24
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:96:2607:beg:0x400b2c
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:102:2696:beg:0x400b4c
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:103:2717:beg:0x400b50
++next
+BDT_toString () at bdtBad5.c:474
+/u/cos217/Assignment4/bdtBad5.c:474:11831:beg:0x4026c0
++step
+BDT_preOrderTraversal (n=0x0, d=0x430010, i=0) at bdtBad5.c:422
+/u/cos217/Assignment4/bdtBad5.c:422:10351:beg:0x4024b0
++next
+/u/cos217/Assignment4/bdtBad5.c:424:10374:beg:0x4024dc
++next
+/u/cos217/Assignment4/bdtBad5.c:430:10551:beg:0x402538
++next
+/u/cos217/Assignment4/bdtBad5.c:431:10564:beg:0x40253c
++next
+BDT_toString () at bdtBad5.c:476
+/u/cos217/Assignment4/bdtBad5.c:476:11881:beg:0x4026d8
++step
+DynArray_map (oDynArray=0x430010, pfApply=0x402544 <BDT_strlenAccumulate>, 
+    pvExtra=0xfffffffff088) at dynarray.c:246
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:246:6201:beg:0x40134c
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:247:6231:beg:0x401378
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:248:6259:beg:0x4013a4
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x4013d4
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
++step
+BDT_strlenAccumulate (str=0x0, pAcc=0xfffffffff088) at bdtBad5.c:440
+/u/cos217/Assignment4/bdtBad5.c:440:10909:beg:0x402558
++next
+
+Program received signal SIGABRT, Aborted.
+0x0000ffffbe5f50e8 in raise () from /lib64/libc.so.6
++reverse-step
+Target child does not support this command.
++run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) 
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad5 
+
+Breakpoint 1, BDT_toString () at bdtBad5.c:467
+/u/cos217/Assignment4/bdtBad5.c:467:11679:beg:0x402680
++next
+/u/cos217/Assignment4/bdtBad5.c:468:11730:beg:0x402688
++next
+/u/cos217/Assignment4/bdtBad5.c:470:11755:beg:0x40268c
++next
+/u/cos217/Assignment4/bdtBad5.c:471:11777:beg:0x4026a0
++next
+/u/cos217/Assignment4/bdtBad5.c:491:12270:beg:0x40273c
++next
+main () at bdt_client.c:29
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:29:1151:beg:0x4027e8
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:30:1184:beg:0x402814
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:31:1230:beg:0x402848
++step
+
+Breakpoint 1, BDT_toString () at bdtBad5.c:467
+/u/cos217/Assignment4/bdtBad5.c:467:11679:beg:0x402680
++next
+/u/cos217/Assignment4/bdtBad5.c:468:11730:beg:0x402688
++next
+/u/cos217/Assignment4/bdtBad5.c:470:11755:beg:0x40268c
++next
+/u/cos217/Assignment4/bdtBad5.c:473:11797:beg:0x4026a8
++next
+/u/cos217/Assignment4/bdtBad5.c:474:11831:beg:0x4026c0
++next
+/u/cos217/Assignment4/bdtBad5.c:476:11881:beg:0x4026d8
++step
+DynArray_map (oDynArray=0x430010, pfApply=0x402544 <BDT_strlenAccumulate>, 
+    pvExtra=0xfffffffff088) at dynarray.c:246
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:246:6201:beg:0x40134c
++break BDT_insertPath
+Breakpoint 2 at 0x402198: file bdtBad5.c, line 320.
++run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) 
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad5 
+
+Breakpoint 2, BDT_insertPath (path=0x403640 "a/b/c") at bdtBad5.c:320
+/u/cos217/Assignment4/bdtBad5.c:320:8186:beg:0x402198
++next
+/u/cos217/Assignment4/bdtBad5.c:322:8212:beg:0x4021c4
++next
+/u/cos217/Assignment4/bdtBad5.c:323:8234:beg:0x4021d8
++break BDT_traversePath
+Breakpoint 3 at 0x401db4: file bdtBad5.c, line 140.
++run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) 
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad5 
+
+Breakpoint 2, BDT_insertPath (path=0x403640 "a/b/c") at bdtBad5.c:320
+/u/cos217/Assignment4/bdtBad5.c:320:8186:beg:0x402198
++next
+/u/cos217/Assignment4/bdtBad5.c:322:8212:beg:0x4021c4
++next
+/u/cos217/Assignment4/bdtBad5.c:323:8234:beg:0x4021d8
++next
+/u/cos217/Assignment4/bdtBad5.c:326:8347:beg:0x4021f8
++next
+main () at bdt_client.c:23
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:23:881:beg:0x402780
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:24:927:beg:0x4027b4
++next
+
+Breakpoint 1, BDT_toString () at bdtBad5.c:467
+/u/cos217/Assignment4/bdtBad5.c:467:11679:beg:0x402680
++next
+/u/cos217/Assignment4/bdtBad5.c:468:11730:beg:0x402688
++next
+/u/cos217/Assignment4/bdtBad5.c:470:11755:beg:0x40268c
++next
+/u/cos217/Assignment4/bdtBad5.c:471:11777:beg:0x4026a0
++next
+/u/cos217/Assignment4/bdtBad5.c:491:12270:beg:0x40273c
++next
+main () at bdt_client.c:29
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:29:1151:beg:0x4027e8
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:30:1184:beg:0x402814
++next
+
+Breakpoint 3, BDT_traversePath (path=0x403640 "a/b/c") at bdtBad5.c:140
+/u/cos217/Assignment4/bdtBad5.c:140:3880:beg:0x401db4
++next
+/u/cos217/Assignment4/bdtBad5.c:141:3905:beg:0x401de0
++step
+BDT_traversePathFrom (path=0x403640 "a/b/c", curr=0x0) at bdtBad5.c:106
+/u/cos217/Assignment4/bdtBad5.c:106:2832:beg:0x401cbc
++next
+/u/cos217/Assignment4/bdtBad5.c:109:2892:beg:0x401ce8

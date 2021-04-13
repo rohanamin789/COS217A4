@@ -880,3 +880,86 @@ DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExt
 /u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
 +next
 /u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
++break 87
+Breakpoint 1 at 0x402f1c: file bdt_client.c, line 87.
++run
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
+
+Breakpoint 1, main () at bdt_client.c:87
+warning: Source file is more recent than executable.
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3600:beg:0x402f1c
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
++step
+BDT_toString () at bdtBad4.c:467
+/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
++next
+/u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
++next
+/u/cos217/Assignment4/bdtBad4.c:470:11755:beg:0x40268c
++next
+/u/cos217/Assignment4/bdtBad4.c:473:11797:beg:0x4026a8
++step
+DynArray_new (uLength=4) at dynarray.c:84
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:84:2239:beg:0x400ab8
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:85:2305:beg:0x400ac4
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:88:2351:beg:0x400ad8
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:89:2384:beg:0x400ae4
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:90:2418:beg:0x400af4
++break 87
+Breakpoint 1 at 0x402f1c: file bdt_client.c, line 87.
++run
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
+
+Breakpoint 1, main () at bdt_client.c:87
+warning: Source file is more recent than executable.
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3600:beg:0x402f1c
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
++step 
+BDT_toString () at bdtBad4.c:467
+/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
++next
+/u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
++next
+/u/cos217/Assignment4/bdtBad4.c:470:11755:beg:0x40268c
++next
+/u/cos217/Assignment4/bdtBad4.c:473:11797:beg:0x4026a8
++next
+/u/cos217/Assignment4/bdtBad4.c:474:11829:beg:0x4026bc
++next
+/u/cos217/Assignment4/bdtBad4.c:476:11879:beg:0x4026d4
++next
+/u/cos217/Assignment4/bdtBad4.c:479:11990:beg:0x4026e8
++next
+/u/cos217/Assignment4/bdtBad4.c:480:12023:beg:0x4026f4
++next
+/u/cos217/Assignment4/bdtBad4.c:485:12100:beg:0x402710
++step
+DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220) at dynarray.c:246
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:246:6201:beg:0x40134c
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:247:6231:beg:0x401378
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:248:6259:beg:0x4013a4
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x4013d4
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
++step
+BDT_strcatAccumulate (str=0x430010 "a", acc=0x430220 "0\001C") at bdtBad4.c:452
+/u/cos217/Assignment4/bdtBad4.c:452:11228:beg:0x4025ec
++break 87
+Breakpoint 1 at 0x402f1c: file bdt_client.c, line 87.
++run
+Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
+
+Breakpoint 1, main () at bdt_client.c:87
+warning: Source file is more recent than executable.
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3600:beg:0x402f1c
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
++step
+BDT_toString () at bdtBad4.c:467
+/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
