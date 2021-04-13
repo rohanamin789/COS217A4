@@ -106,19 +106,18 @@ static boolean CheckerDT_treeCheck(Node_T n) {
    Returns the number of nodes within that tree.
 */
 static size_t CheckerDT_nodeCount(Node_T n) {
-   size_t c;
-   size_t count;
+      size+t
+         size_t count;
+      if (n == NULL) return 0;
+      else count = 1;
 
-   if (n == NULL) return 0;
-   else count = 1;
+      for(c = 0; c < Node_getNumChildren(n); c++) {
+         Node_T child = Node_getChild(n, c);
 
-   for(c = 0; c < Node_getNumChildren(n); c++) {
-      Node_T child = Node_getChild(n, c);
+         count += CheckerDT_nodeCount(child);
+      }
 
-      count += CheckerDT_nodeCount(child);
-   }
-
-   return count;
+      return count;
 }
 
 /*
@@ -154,8 +153,8 @@ static size_t CheckerDT_orderCheck(Node_T n) {
          /* if recurring down one subtree results in a failed check
             farther down, passes the failure back up immediately */
          if(compare >= 0) {
-            fprintf(stderr,
-                    "Children do not follow lexicographic order\n");
+            fprintf(stderr, "Children do not follow lexicographic 
+            order\n");
             return FALSE;
          }
       }
@@ -198,6 +197,12 @@ boolean CheckerDT_isValid(boolean isInit, Node_T root, size_t count) {
    if(!isInit)
       if (root != NULL) {
          fprintf(stderr, "Not initialized, but root is not NULL\n");
+      }
+
+   /* Root should not have a parent */
+   if(root != NULL)
+      if (Node_getParent(root) != NULL) {
+         fprintf(stderr, "Root node has a parent\n");
       }
 
    /* Now checks invariants recursively at each node from the root. */
