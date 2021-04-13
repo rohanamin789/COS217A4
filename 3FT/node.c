@@ -66,21 +66,23 @@ static char* Node_buildPath(Node_T n, const char* dir) {
 
 void Node_changeFileContents(Node_T n, void* newContents,
                              size_t newLength){
+   assert (n != NULL); 
    n->contents = newContents;
    n->length = newLength; 
 }
 
-boolean Node_getStatus(Node_T n){
+boolean Node_getStatus(Node_T n){ 
+   assert (n != NULL); 
    return n->status;
 }
 
 void *Node_getFileContents(Node_T n){
-   assert (n->status == TRUE);
+   assert (n != NULL); 
    return n->contents; 
 }
 
 size_t Node_getFileLength(Node_T n){
-   assert (n->status == TRUE);
+   assert (n != NULL); 
    return n->length; 
 }
 
@@ -88,7 +90,7 @@ size_t Node_getFileLength(Node_T n){
 Node_T Node_addFile(const char* dir, Node_T parent,
                     void* contents, size_t length){
    Node_T new;
-   assert (parent == NULL);
+   assert (parent != NULL);
    assert (dir != NULL);
    new = (Node_T) malloc(sizeof(struct node)); 
    if (new == NULL)

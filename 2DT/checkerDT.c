@@ -36,7 +36,7 @@ boolean CheckerDT_Node_isValid(Node_T n) {
          return FALSE;
       }
       /* Child and parent cannot share same path */
-      if(strcmp(npath, ppath)) {
+      if(i == strlen(npath)) {
          fprintf(stderr, "P and C have same path\n");
          return FALSE;
       }
