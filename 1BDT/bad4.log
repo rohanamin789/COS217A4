@@ -1,114 +1,29 @@
-+break 88
-Breakpoint 1 at 0x402f50: file bdt_client.c, line 88.
-+run 
++break BDT_toString
+Breakpoint 1 at 0x402680: file bdtBad4.c, line 467.
++run
 Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
 
-Breakpoint 1, main () at bdt_client.c:88
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:88:3635:beg:0x402f50
-Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:89:3668:beg:0x402f6c
-+clear 88
-Deleted breakpoint 1 
-+break 87
-Breakpoint 2 at 0x402f1c: file bdt_client.c, line 87.
-+run
-The program being debugged has been started already.
-Start it from the beginning? (y or n) Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
-
-Breakpoint 2, main () at bdt_client.c:87
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3592:beg:0x402f1c
-+step
-BDT_toString () at bdtBad4.c:467
+Breakpoint 1, BDT_toString () at bdtBad4.c:467
 /u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
 +next
 /u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
 +next
 /u/cos217/Assignment4/bdtBad4.c:470:11755:beg:0x40268c
 +next
-/u/cos217/Assignment4/bdtBad4.c:473:11797:beg:0x4026a8
-+next
-/u/cos217/Assignment4/bdtBad4.c:474:11829:beg:0x4026bc
-+next
-/u/cos217/Assignment4/bdtBad4.c:476:11879:beg:0x4026d4
-+next
-/u/cos217/Assignment4/bdtBad4.c:479:11990:beg:0x4026e8
-+next
-/u/cos217/Assignment4/bdtBad4.c:480:12023:beg:0x4026f4
-+next
-/u/cos217/Assignment4/bdtBad4.c:485:12100:beg:0x402710
-+step
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:246
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:246:6201:beg:0x40134c
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:247:6231:beg:0x401378
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:248:6259:beg:0x4013a4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x4013d4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+step
-BDT_strcatAccumulate (str=0x430010 "a", acc=0x430220 "0\001C") at bdtBad4.c:452
-/u/cos217/Assignment4/bdtBad4.c:452:11228:beg:0x4025ec
-+next
-/u/cos217/Assignment4/bdtBad4.c:453:11252:beg:0x402618
-+next
-/u/cos217/Assignment4/bdtBad4.c:455:11277:beg:0x402644
-+next
-/u/cos217/Assignment4/bdtBad4.c:456:11317:beg:0x402670
-+next
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:250
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+step
-BDT_strcatAccumulate (str=0x430100 "a/b/c", acc=0x430220 "0\001Ca\na/b\n") at bdtBad4.c:452
-/u/cos217/Assignment4/bdtBad4.c:452:11228:beg:0x4025ec
-+next
-/u/cos217/Assignment4/bdtBad4.c:453:11252:beg:0x402618
-+next
-/u/cos217/Assignment4/bdtBad4.c:455:11277:beg:0x402644
-+next
-/u/cos217/Assignment4/bdtBad4.c:456:11317:beg:0x402670
-+next
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:250
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:252:6409:beg:0x401420
-+next
-BDT_toString () at bdtBad4.c:488
-/u/cos217/Assignment4/bdtBad4.c:488:12206:beg:0x402724
-+next
-/u/cos217/Assignment4/bdtBad4.c:489:12231:beg:0x40272c
+/u/cos217/Assignment4/bdtBad4.c:471:11777:beg:0x4026a0
 +next
 /u/cos217/Assignment4/bdtBad4.c:490:12249:beg:0x402730
 +next
-main () at bdt_client.c:88
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:88:3635:beg:0x402f50
+main () at bdt_client.c:29
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:29:1143:beg:0x4027dc
 +next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:89:3668:beg:0x402f6c
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:30:1176:beg:0x402808
 +next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:93:3817:beg:0x402f74
-+run
-The program being debugged has been started already.
-Start it from the beginning? (y or n) Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:31:1222:beg:0x40283c
++next
 
-Breakpoint 2, main () at bdt_client.c:87
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3592:beg:0x402f1c
-+step
-BDT_toString () at bdtBad4.c:467
+Breakpoint 1, BDT_toString () at bdtBad4.c:467
 /u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
 +next
 /u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
@@ -127,16 +42,9 @@ BDT_toString () at bdtBad4.c:467
 +next
 /u/cos217/Assignment4/bdtBad4.c:485:12100:beg:0x402710
 +step
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:246
+DynArray_map (oDynArray=0x430010, pfApply=0x4025dc <BDT_strcatAccumulate>, 
+    pvExtra=0x430050) at dynarray.c:246
 /u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:246:6201:beg:0x40134c
-+vt
-Undefined command: "vt".  Try "help".
-+bt
-#0  DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:246
-#1  0x0000000000402724 in BDT_toString () at bdtBad4.c:485
-#2  0x0000000000402f20 in main () at bdt_client.c:87
 +next
 /u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:247:6231:beg:0x401378
 +next
@@ -144,199 +52,32 @@ Undefined command: "vt".  Try "help".
 +next
 /u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x4013d4
 +next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+step
-BDT_strcatAccumulate (str=0x430030 "a/b", acc=0x430220 "0\001Ca\n") at bdtBad4.c:452
-/u/cos217/Assignment4/bdtBad4.c:452:11228:beg:0x4025ec
-+next
-/u/cos217/Assignment4/bdtBad4.c:453:11252:beg:0x402618
-+next
-/u/cos217/Assignment4/bdtBad4.c:455:11277:beg:0x402644
-+next
-/u/cos217/Assignment4/bdtBad4.c:456:11317:beg:0x402670
-+next
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:250
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+step
-BDT_strcatAccumulate (str=0x430100 "a/b/c", acc=0x430220 "0\001Ca\na/b\n") at bdtBad4.c:452
-/u/cos217/Assignment4/bdtBad4.c:452:11228:beg:0x4025ec
-+step
-/u/cos217/Assignment4/bdtBad4.c:453:11252:beg:0x402618
-+step
-/u/cos217/Assignment4/bdtBad4.c:455:11277:beg:0x402644
-+step
-/u/cos217/Assignment4/bdtBad4.c:456:11317:beg:0x402670
-+step
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:250
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+step
-BDT_strcatAccumulate (str=0x430050 "a/b/d", acc=0x430220 "0\001Ca\na/b\na/b/c\n") at bdtBad4.c:452
-/u/cos217/Assignment4/bdtBad4.c:452:11228:beg:0x4025ec
-+step
-/u/cos217/Assignment4/bdtBad4.c:453:11252:beg:0x402618
-+step
-/u/cos217/Assignment4/bdtBad4.c:455:11277:beg:0x402644
-+step
-/u/cos217/Assignment4/bdtBad4.c:456:11317:beg:0x402670
-+step
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:250
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+step
 /u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:252:6409:beg:0x401420
 +step
 BDT_toString () at bdtBad4.c:488
 /u/cos217/Assignment4/bdtBad4.c:488:12206:beg:0x402724
-+step
-DynArray_free (oDynArray=0x430120) at dynarray.c:109
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:109:2837:beg:0x400b64
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:110:2867:beg:0x400b90
-+step
-DynArray_isValid (oDynArray=0x430120) at dynarray.c:44
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:44:1237:beg:0x4009a8
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:45:1296:beg:0x4009c4
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:46:1358:beg:0x4009e4
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:47:1404:beg:0x4009fc
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:48:1417:beg:0x400a00
-+step
-DynArray_free (oDynArray=0x430120) at dynarray.c:112
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:112:2908:beg:0x400bc0
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:113:2938:beg:0x400bcc
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:114:2958:beg:0x400bd4
-+step
-BDT_toString () at bdtBad4.c:489
-/u/cos217/Assignment4/bdtBad4.c:489:12231:beg:0x40272c
-+next
-/u/cos217/Assignment4/bdtBad4.c:490:12249:beg:0x402730
-+next
-main () at bdt_client.c:88
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:88:3635:beg:0x402f50
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:89:3668:beg:0x402f6c
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:93:3817:beg:0x402f74
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:94:3861:beg:0x402fa8
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:95:3904:beg:0x402fdc
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:96:3937:beg:0x402ff8
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:97:3951:beg:0x403000
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:98:3991:beg:0x403034
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:99:4035:beg:0x403068
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:100:4078:beg:0x40309c
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:101:4111:beg:0x4030b8
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:103:4126:beg:0x4030c0
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:104:4162:beg:0x4030ec
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:105:4211:beg:0x403118
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:107:4254:beg:0x40314c
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:108:4266:beg:0x403150
-+next
-0x0000ffffbe5e15d4 in __libc_start_main () from /lib64/libc.so.6
-+next
-Single stepping until exit from function __libc_start_main,
-which has no line number information.
-[Inferior 1 (process 18249) exited normally]
-+next
-The program is not being run.
-+next
-The program is not being run.
-+run
-Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
-
-Breakpoint 2, main () at bdt_client.c:87
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3592:beg:0x402f1c
-+step
-BDT_toString () at bdtBad4.c:467
-/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
-+next
-/u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
-+next
-/u/cos217/Assignment4/bdtBad4.c:470:11755:beg:0x40268c
-+next
-/u/cos217/Assignment4/bdtBad4.c:473:11797:beg:0x4026a8
-+next
-/u/cos217/Assignment4/bdtBad4.c:474:11829:beg:0x4026bc
-+step
-BDT_preOrderTraversal (n=0x430070, d=0x430120, i=0) at bdtBad4.c:422
-/u/cos217/Assignment4/bdtBad4.c:422:10351:beg:0x4024b0
-+next
-/u/cos217/Assignment4/bdtBad4.c:424:10374:beg:0x4024dc
-+break 87
-Breakpoint 1 at 0x402f1c: file bdt_client.c, line 87.
-+run
-Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
-
-Breakpoint 1, main () at bdt_client.c:87
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3592:beg:0x402f1c
-Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
-+step
-BDT_toString () at bdtBad4.c:467
-/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
-+next
-/u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
-+next
-/u/cos217/Assignment4/bdtBad4.c:470:11755:beg:0x40268c
-+next
-/u/cos217/Assignment4/bdtBad4.c:473:11797:beg:0x4026a8
-+next
-/u/cos217/Assignment4/bdtBad4.c:474:11829:beg:0x4026bc
-+next
-/u/cos217/Assignment4/bdtBad4.c:476:11879:beg:0x4026d4
-+next
-/u/cos217/Assignment4/bdtBad4.c:479:11990:beg:0x4026e8
-+next
-/u/cos217/Assignment4/bdtBad4.c:480:12023:beg:0x4026f4
-+next
-/u/cos217/Assignment4/bdtBad4.c:485:12100:beg:0x402710
-+next
-/u/cos217/Assignment4/bdtBad4.c:488:12206:beg:0x402724
 +next
 /u/cos217/Assignment4/bdtBad4.c:489:12231:beg:0x40272c
 +next
 /u/cos217/Assignment4/bdtBad4.c:490:12249:beg:0x402730
 +next
-main () at bdt_client.c:88
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:88:3635:beg:0x402f50
+main () at bdt_client.c:32
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:32:1265:beg:0x402870
 +next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:89:3668:beg:0x402f6c
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:33:1293:beg:0x4028a0
 +next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:93:3817:beg:0x402f74
-+run
-The program being debugged has been started already.
-Start it from the beginning? (y or n) Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:40:1601:beg:0x4028a8
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:41:1647:beg:0x4028dc
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:42:1688:beg:0x402910
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:43:1731:beg:0x402944
++next
+/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:44:1776:beg:0x402978
++next
 
-Breakpoint 1, main () at bdt_client.c:87
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3592:beg:0x402f1c
-+step
-BDT_toString () at bdtBad4.c:467
+Breakpoint 1, BDT_toString () at bdtBad4.c:467
 /u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
 +next
 /u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
@@ -355,8 +96,8 @@ BDT_toString () at bdtBad4.c:467
 +next
 /u/cos217/Assignment4/bdtBad4.c:485:12100:beg:0x402710
 +step
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:246
+DynArray_map (oDynArray=0x430050, pfApply=0x4025dc <BDT_strcatAccumulate>, 
+    pvExtra=0x430140) at dynarray.c:246
 /u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:246:6201:beg:0x40134c
 +next
 /u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:247:6231:beg:0x401378
@@ -367,7 +108,7 @@ DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExt
 +next
 /u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
 +step
-BDT_strcatAccumulate (str=0x430010 "a", acc=0x430220 "0\001C") at bdtBad4.c:452
+BDT_strcatAccumulate (str=0x430010 "a", acc=0x430140 "") at bdtBad4.c:452
 /u/cos217/Assignment4/bdtBad4.c:452:11228:beg:0x4025ec
 +next
 /u/cos217/Assignment4/bdtBad4.c:453:11252:beg:0x402618
@@ -376,590 +117,16 @@ BDT_strcatAccumulate (str=0x430010 "a", acc=0x430220 "0\001C") at bdtBad4.c:452
 +next
 /u/cos217/Assignment4/bdtBad4.c:456:11317:beg:0x402670
 +next
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:250
+DynArray_map (oDynArray=0x430050, pfApply=0x4025dc <BDT_strcatAccumulate>, 
+    pvExtra=0x430140) at dynarray.c:250
 /u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
 +next
 /u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+step
-BDT_strcatAccumulate (str=0x430030 "a/b", acc=0x430220 "0\001Ca\n") at bdtBad4.c:452
-/u/cos217/Assignment4/bdtBad4.c:452:11228:beg:0x4025ec
-+step
-/u/cos217/Assignment4/bdtBad4.c:453:11252:beg:0x402618
-+step
-/u/cos217/Assignment4/bdtBad4.c:455:11277:beg:0x402644
-+step
-/u/cos217/Assignment4/bdtBad4.c:456:11317:beg:0x402670
-+step
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:250
++next
 /u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+step
-BDT_strcatAccumulate (str=0x430100 "a/b/c", acc=0x430220 "0\001Ca\na/b\n") at bdtBad4.c:452
-/u/cos217/Assignment4/bdtBad4.c:452:11228:beg:0x4025ec
-+step
-/u/cos217/Assignment4/bdtBad4.c:453:11252:beg:0x402618
-+step
-/u/cos217/Assignment4/bdtBad4.c:455:11277:beg:0x402644
-+step
-/u/cos217/Assignment4/bdtBad4.c:456:11317:beg:0x402670
-+step
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:250
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+step
-BDT_strcatAccumulate (str=0x430050 "a/b/d", acc=0x430220 "0\001Ca\na/b\na/b/c\n") at bdtBad4.c:452
-/u/cos217/Assignment4/bdtBad4.c:452:11228:beg:0x4025ec
-+step
-/u/cos217/Assignment4/bdtBad4.c:453:11252:beg:0x402618
-+step
-/u/cos217/Assignment4/bdtBad4.c:455:11277:beg:0x402644
-+step
-/u/cos217/Assignment4/bdtBad4.c:456:11317:beg:0x402670
-+step
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:250
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:252:6409:beg:0x401420
-+step
-BDT_toString () at bdtBad4.c:488
-/u/cos217/Assignment4/bdtBad4.c:488:12206:beg:0x402724
-+step
-DynArray_free (oDynArray=0x430120) at dynarray.c:109
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:109:2837:beg:0x400b64
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:110:2867:beg:0x400b90
-+step
-DynArray_isValid (oDynArray=0x430120) at dynarray.c:44
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:44:1237:beg:0x4009a8
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:45:1296:beg:0x4009c4
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:46:1358:beg:0x4009e4
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:47:1404:beg:0x4009fc
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:48:1417:beg:0x400a00
-+step
-DynArray_free (oDynArray=0x430120) at dynarray.c:112
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:112:2908:beg:0x400bc0
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:113:2938:beg:0x400bcc
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:114:2958:beg:0x400bd4
-+step
-BDT_toString () at bdtBad4.c:489
-/u/cos217/Assignment4/bdtBad4.c:489:12231:beg:0x40272c
-+step
-/u/cos217/Assignment4/bdtBad4.c:490:12249:beg:0x402730
-+step
-main () at bdt_client.c:88
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:88:3635:beg:0x402f50
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:89:3668:beg:0x402f6c
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:93:3817:beg:0x402f74
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:94:3861:beg:0x402fa8
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:95:3904:beg:0x402fdc
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:96:3937:beg:0x402ff8
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:97:3951:beg:0x403000
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:98:3991:beg:0x403034
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:99:4035:beg:0x403068
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:100:4078:beg:0x40309c
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:101:4111:beg:0x4030b8
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:103:4126:beg:0x4030c0
-+break 87
-Breakpoint 1 at 0x402f1c: file bdt_client.c, line 87.
-+run
-Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
++quit
+A debugging session is active.
 
-Breakpoint 1, main () at bdt_client.c:87
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3592:beg:0x402f1c
-Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
-+step
-BDT_toString () at bdtBad4.c:467
-/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
-+next
-/u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
-+next
-/u/cos217/Assignment4/bdtBad4.c:470:11755:beg:0x40268c
-+next
-/u/cos217/Assignment4/bdtBad4.c:473:11797:beg:0x4026a8
-+next
-/u/cos217/Assignment4/bdtBad4.c:474:11829:beg:0x4026bc
-+step
-BDT_preOrderTraversal (n=0x430070, d=0x430120, i=0) at bdtBad4.c:422
-/u/cos217/Assignment4/bdtBad4.c:422:10351:beg:0x4024b0
-+next
-/u/cos217/Assignment4/bdtBad4.c:424:10374:beg:0x4024dc
-+next
-/u/cos217/Assignment4/bdtBad4.c:425:10393:beg:0x4024e8
-+step
-DynArray_set (oDynArray=0x430120, uIndex=0, pvElement=0x430010) at dynarray.c:144
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:144:3687:beg:0x400d28
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:145:3717:beg:0x400d54
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:146:3757:beg:0x400d88
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:148:3798:beg:0x400db8
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:149:3845:beg:0x400dd4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:151:3890:beg:0x400df0
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:153:3931:beg:0x400e20
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:154:3962:beg:0x400e24
-+next
-BDT_preOrderTraversal (n=0x430070, d=0x430120, i=0) at bdtBad4.c:426
-/u/cos217/Assignment4/bdtBad4.c:426:10435:beg:0x4024fc
-+next
-/u/cos217/Assignment4/bdtBad4.c:427:10446:beg:0x402508
-+next
-/u/cos217/Assignment4/bdtBad4.c:428:10496:beg:0x402520
-+next
-/u/cos217/Assignment4/bdtBad4.c:430:10551:beg:0x402538
-+next
-/u/cos217/Assignment4/bdtBad4.c:431:10564:beg:0x40253c
-+next
-BDT_toString () at bdtBad4.c:476
-/u/cos217/Assignment4/bdtBad4.c:476:11879:beg:0x4026d4
-+next
-/u/cos217/Assignment4/bdtBad4.c:479:11990:beg:0x4026e8
-+next
-/u/cos217/Assignment4/bdtBad4.c:480:12023:beg:0x4026f4
-+next
-/u/cos217/Assignment4/bdtBad4.c:485:12100:beg:0x402710
-+step
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:246
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:246:6201:beg:0x40134c
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:247:6231:beg:0x401378
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:248:6259:beg:0x4013a4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x4013d4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+step
-BDT_strcatAccumulate (str=0x430010 "a", acc=0x430220 "0\001C") at bdtBad4.c:452
-/u/cos217/Assignment4/bdtBad4.c:452:11228:beg:0x4025ec
-+break 87
-Breakpoint 1 at 0x402f1c: file bdt_client.c, line 87.
-+run
-Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
+	Inferior 1 [process 83315] will be killed.
 
-Breakpoint 1, main () at bdt_client.c:87
-warning: Source file is more recent than executable.
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3600:beg:0x402f1c
-Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
-+step
-BDT_toString () at bdtBad4.c:467
-/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
-+nexzt
-Undefined command: "nexzt".  Try "help".
-+next
-/u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
-+next
-/u/cos217/Assignment4/bdtBad4.c:470:11755:beg:0x40268c
-+next
-/u/cos217/Assignment4/bdtBad4.c:473:11797:beg:0x4026a8
-+next
-/u/cos217/Assignment4/bdtBad4.c:474:11829:beg:0x4026bc
-+next
-/u/cos217/Assignment4/bdtBad4.c:476:11879:beg:0x4026d4
-+run
-The program being debugged has been started already.
-Start it from the beginning? (y or n) Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
-
-Breakpoint 1, main () at bdt_client.c:87
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3600:beg:0x402f1c
-+step
-BDT_toString () at bdtBad4.c:467
-/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
-+next
-/u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
-+next
-/u/cos217/Assignment4/bdtBad4.c:470:11755:beg:0x40268c
-+next
-/u/cos217/Assignment4/bdtBad4.c:473:11797:beg:0x4026a8
-+next
-/u/cos217/Assignment4/bdtBad4.c:474:11829:beg:0x4026bc
-+step
-BDT_preOrderTraversal (n=0x430070, d=0x430120, i=0) at bdtBad4.c:422
-/u/cos217/Assignment4/bdtBad4.c:422:10351:beg:0x4024b0
-+step
-/u/cos217/Assignment4/bdtBad4.c:424:10374:beg:0x4024dc
-+step
-/u/cos217/Assignment4/bdtBad4.c:425:10393:beg:0x4024e8
-+step
-DynArray_set (oDynArray=0x430120, uIndex=0, pvElement=0x430010) at dynarray.c:144
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:144:3687:beg:0x400d28
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:145:3717:beg:0x400d54
-+step
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:146:3757:beg:0x400d88
-+step
-DynArray_isValid (oDynArray=0x430120) at dynarray.c:44
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:44:1237:beg:0x4009a8
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:45:1296:beg:0x4009c4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:46:1358:beg:0x4009e4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:47:1404:beg:0x4009fc
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:48:1417:beg:0x400a00
-+next
-DynArray_set (oDynArray=0x430120, uIndex=0, pvElement=0x430010) at dynarray.c:148
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:148:3798:beg:0x400db8
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:149:3845:beg:0x400dd4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:151:3890:beg:0x400df0
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:153:3931:beg:0x400e20
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:154:3962:beg:0x400e24
-+next
-BDT_preOrderTraversal (n=0x430070, d=0x430120, i=0) at bdtBad4.c:426
-/u/cos217/Assignment4/bdtBad4.c:426:10435:beg:0x4024fc
-+next
-/u/cos217/Assignment4/bdtBad4.c:427:10446:beg:0x402508
-+next
-/u/cos217/Assignment4/bdtBad4.c:428:10496:beg:0x402520
-+next
-/u/cos217/Assignment4/bdtBad4.c:430:10551:beg:0x402538
-+next
-/u/cos217/Assignment4/bdtBad4.c:431:10564:beg:0x40253c
-+next
-BDT_toString () at bdtBad4.c:476
-/u/cos217/Assignment4/bdtBad4.c:476:11879:beg:0x4026d4
-+next
-/u/cos217/Assignment4/bdtBad4.c:479:11990:beg:0x4026e8
-+next
-/u/cos217/Assignment4/bdtBad4.c:480:12023:beg:0x4026f4
-+next
-/u/cos217/Assignment4/bdtBad4.c:485:12100:beg:0x402710
-+next
-/u/cos217/Assignment4/bdtBad4.c:488:12206:beg:0x402724
-+back
-#0  BDT_toString () at bdtBad4.c:488
-#1  0x0000000000402f20 in main () at bdt_client.c:87
-+run
-The program being debugged has been started already.
-Start it from the beginning? (y or n) Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
-
-Breakpoint 1, main () at bdt_client.c:87
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3600:beg:0x402f1c
-+step
-BDT_toString () at bdtBad4.c:467
-/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
-+next
-/u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
-+next
-/u/cos217/Assignment4/bdtBad4.c:470:11755:beg:0x40268c
-+next
-/u/cos217/Assignment4/bdtBad4.c:473:11797:beg:0x4026a8
-+next
-/u/cos217/Assignment4/bdtBad4.c:474:11829:beg:0x4026bc
-+next
-/u/cos217/Assignment4/bdtBad4.c:476:11879:beg:0x4026d4
-+next
-/u/cos217/Assignment4/bdtBad4.c:479:11990:beg:0x4026e8
-+next
-/u/cos217/Assignment4/bdtBad4.c:480:12023:beg:0x4026f4
-+next
-/u/cos217/Assignment4/bdtBad4.c:485:12100:beg:0x402710
-+next
-/u/cos217/Assignment4/bdtBad4.c:488:12206:beg:0x402724
-+next
-/u/cos217/Assignment4/bdtBad4.c:489:12231:beg:0x40272c
-+next
-/u/cos217/Assignment4/bdtBad4.c:490:12249:beg:0x402730
-+next
-main () at bdt_client.c:88
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:88:3643:beg:0x402f50
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:89:3676:beg:0x402f6c
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:93:3825:beg:0x402f74
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:94:3869:beg:0x402fa8
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:95:3912:beg:0x402fdc
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:96:3945:beg:0x402ff8
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:97:3959:beg:0x403000
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:98:3999:beg:0x403034
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:99:4043:beg:0x403068
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:100:4086:beg:0x40309c
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:101:4119:beg:0x4030b8
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:103:4134:beg:0x4030c0
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:104:4170:beg:0x4030ec
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:105:4219:beg:0x403118
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:107:4262:beg:0x40314c
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:108:4274:beg:0x403150
-+run
-The program being debugged has been started already.
-Start it from the beginning? (y or n) Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
-
-Breakpoint 1, main () at bdt_client.c:87
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3600:beg:0x402f1c
-+step
-BDT_toString () at bdtBad4.c:467
-/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
-+step
-/u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
-+step
-/u/cos217/Assignment4/bdtBad4.c:470:11755:beg:0x40268c
-+next
-/u/cos217/Assignment4/bdtBad4.c:473:11797:beg:0x4026a8
-+next
-/u/cos217/Assignment4/bdtBad4.c:474:11829:beg:0x4026bc
-+next
-/u/cos217/Assignment4/bdtBad4.c:476:11879:beg:0x4026d4
-+step
-DynArray_map (oDynArray=0x430120, pfApply=0x402544 <BDT_strlenAccumulate>, pvExtra=0xfffffffff088)
-    at dynarray.c:246
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:246:6201:beg:0x40134c
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:247:6231:beg:0x401378
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:248:6259:beg:0x4013a4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x4013d4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+step
-BDT_strlenAccumulate (str=0x430010 "a", pAcc=0xfffffffff088) at bdtBad4.c:440
-/u/cos217/Assignment4/bdtBad4.c:440:10909:beg:0x402558
-+next
-/u/cos217/Assignment4/bdtBad4.c:441:10933:beg:0x402584
-+next
-/u/cos217/Assignment4/bdtBad4.c:443:10959:beg:0x4025b0
-+next
-/u/cos217/Assignment4/bdtBad4.c:444:10990:beg:0x4025d0
-+next
-DynArray_map (oDynArray=0x430120, pfApply=0x402544 <BDT_strlenAccumulate>, pvExtra=0xfffffffff088)
-    at dynarray.c:250
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:252:6409:beg:0x401420
-+next
-BDT_toString () at bdtBad4.c:479
-/u/cos217/Assignment4/bdtBad4.c:479:11990:beg:0x4026e8
-+next
-/u/cos217/Assignment4/bdtBad4.c:480:12023:beg:0x4026f4
-+next
-/u/cos217/Assignment4/bdtBad4.c:485:12100:beg:0x402710
-+next
-/u/cos217/Assignment4/bdtBad4.c:488:12206:beg:0x402724
-+run
-The program being debugged has been started already.
-Start it from the beginning? (y or n) Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
-
-Breakpoint 1, main () at bdt_client.c:87
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3600:beg:0x402f1c
-+step
-BDT_toString () at bdtBad4.c:467
-/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
-+next
-/u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
-+next
-/u/cos217/Assignment4/bdtBad4.c:470:11755:beg:0x40268c
-+next
-/u/cos217/Assignment4/bdtBad4.c:473:11797:beg:0x4026a8
-+next
-/u/cos217/Assignment4/bdtBad4.c:474:11829:beg:0x4026bc
-+next
-/u/cos217/Assignment4/bdtBad4.c:476:11879:beg:0x4026d4
-+next
-/u/cos217/Assignment4/bdtBad4.c:479:11990:beg:0x4026e8
-+next
-/u/cos217/Assignment4/bdtBad4.c:480:12023:beg:0x4026f4
-+next
-/u/cos217/Assignment4/bdtBad4.c:485:12100:beg:0x402710
-+next
-/u/cos217/Assignment4/bdtBad4.c:488:12206:beg:0x402724
-+run
-The program being debugged has been started already.
-Start it from the beginning? (y or n) Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
-
-Breakpoint 1, main () at bdt_client.c:87
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3600:beg:0x402f1c
-+step
-BDT_toString () at bdtBad4.c:467
-/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
-+next
-/u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
-+next
-/u/cos217/Assignment4/bdtBad4.c:470:11755:beg:0x40268c
-+next
-/u/cos217/Assignment4/bdtBad4.c:473:11797:beg:0x4026a8
-+next
-/u/cos217/Assignment4/bdtBad4.c:474:11829:beg:0x4026bc
-+next
-/u/cos217/Assignment4/bdtBad4.c:476:11879:beg:0x4026d4
-+next
-/u/cos217/Assignment4/bdtBad4.c:479:11990:beg:0x4026e8
-+next
-/u/cos217/Assignment4/bdtBad4.c:480:12023:beg:0x4026f4
-+next
-/u/cos217/Assignment4/bdtBad4.c:485:12100:beg:0x402710
-+step
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:246
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:246:6201:beg:0x40134c
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:247:6231:beg:0x401378
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:248:6259:beg:0x4013a4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x4013d4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+step
-BDT_strcatAccumulate (str=0x430010 "a", acc=0x430220 "0\001C") at bdtBad4.c:452
-/u/cos217/Assignment4/bdtBad4.c:452:11228:beg:0x4025ec
-+next
-/u/cos217/Assignment4/bdtBad4.c:453:11252:beg:0x402618
-+next
-/u/cos217/Assignment4/bdtBad4.c:455:11277:beg:0x402644
-+next
-/u/cos217/Assignment4/bdtBad4.c:456:11317:beg:0x402670
-+next
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220)
-    at dynarray.c:250
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x401400
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+break 87
-Breakpoint 1 at 0x402f1c: file bdt_client.c, line 87.
-+run
-Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
-
-Breakpoint 1, main () at bdt_client.c:87
-warning: Source file is more recent than executable.
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3600:beg:0x402f1c
-Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
-+step
-BDT_toString () at bdtBad4.c:467
-/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
-+next
-/u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
-+next
-/u/cos217/Assignment4/bdtBad4.c:470:11755:beg:0x40268c
-+next
-/u/cos217/Assignment4/bdtBad4.c:473:11797:beg:0x4026a8
-+step
-DynArray_new (uLength=4) at dynarray.c:84
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:84:2239:beg:0x400ab8
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:85:2305:beg:0x400ac4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:88:2351:beg:0x400ad8
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:89:2384:beg:0x400ae4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:90:2418:beg:0x400af4
-+break 87
-Breakpoint 1 at 0x402f1c: file bdt_client.c, line 87.
-+run
-Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
-
-Breakpoint 1, main () at bdt_client.c:87
-warning: Source file is more recent than executable.
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3600:beg:0x402f1c
-Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
-+step 
-BDT_toString () at bdtBad4.c:467
-/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
-+next
-/u/cos217/Assignment4/bdtBad4.c:468:11730:beg:0x402688
-+next
-/u/cos217/Assignment4/bdtBad4.c:470:11755:beg:0x40268c
-+next
-/u/cos217/Assignment4/bdtBad4.c:473:11797:beg:0x4026a8
-+next
-/u/cos217/Assignment4/bdtBad4.c:474:11829:beg:0x4026bc
-+next
-/u/cos217/Assignment4/bdtBad4.c:476:11879:beg:0x4026d4
-+next
-/u/cos217/Assignment4/bdtBad4.c:479:11990:beg:0x4026e8
-+next
-/u/cos217/Assignment4/bdtBad4.c:480:12023:beg:0x4026f4
-+next
-/u/cos217/Assignment4/bdtBad4.c:485:12100:beg:0x402710
-+step
-DynArray_map (oDynArray=0x430120, pfApply=0x4025dc <BDT_strcatAccumulate>, pvExtra=0x430220) at dynarray.c:246
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:246:6201:beg:0x40134c
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:247:6231:beg:0x401378
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:248:6259:beg:0x4013a4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:250:6300:beg:0x4013d4
-+next
-/u/rohana/COS217Trees/COS217A4/1BDT/dynarray.c:251:6344:beg:0x4013dc
-+step
-BDT_strcatAccumulate (str=0x430010 "a", acc=0x430220 "0\001C") at bdtBad4.c:452
-/u/cos217/Assignment4/bdtBad4.c:452:11228:beg:0x4025ec
-+break 87
-Breakpoint 1 at 0x402f1c: file bdt_client.c, line 87.
-+run
-Starting program: /u/rohana/COS217Trees/COS217A4/1BDT/bdtBad4 
-
-Breakpoint 1, main () at bdt_client.c:87
-warning: Source file is more recent than executable.
-/u/rohana/COS217Trees/COS217A4/1BDT/bdt_client.c:87:3600:beg:0x402f1c
-Missing separate debuginfos, use: debuginfo-install glibc-2.17-222.sd7.aarch64
-+step
-BDT_toString () at bdtBad4.c:467
-/u/cos217/Assignment4/bdtBad4.c:467:11679:beg:0x402680
+Quit anyway? (y or n) 
