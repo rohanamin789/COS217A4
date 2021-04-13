@@ -30,7 +30,7 @@ static size_t FT_preOrderTraversal(Node_T n, DynArray_T d, size_t i) {
       (void) DynArray_set(d, i, Node_getPath(n));
       i++;
       for(c = 0; c < Node_getNumChildren(n); c++)
-         i = FT_preOrderTraversal(Node_getChild(n, c), d, i);
+            i = FT_preOrderTraversal(Node_getChild(n, c), d, i);
    }
    return i;
 }
@@ -61,8 +61,7 @@ static void DT_strcatAccumulate(char* str, char* acc) {
 
 static int FT_linkParentToChild(Node_T parent, Node_T child){
    assert (parent != NULL);
-   if (Node_getStatus(parent) == TRUE)
-      return NOT_A_DIRECTORY;
+   if (Node_getStatus(parent) == TRUE) return NOT_A_DIRECTORY; 
 
    if(Node_linkChild(parent,child) != SUCCESS) {
       (void) Node_destroy(child);
@@ -89,6 +88,7 @@ static int FT_appendFiles(char* path, Node_T parent,
    char* dirToken;
    int result;
    size_t newCount = 0;
+   char* temp; 
 
    assert (path != NULL);
    curr = parent; 
@@ -103,7 +103,7 @@ static int FT_appendFiles(char* path, Node_T parent,
          return ALREADY_IN_TREE;
          restPath += (strlen(Node_getPath(curr)) + 1);
    }
-   if (Node_getStatus(curr) == TRUE) return PARENT_CHILD_ERROR; 
+   if (Node_getStatus(curr) == TRUE) return NOT_A_DIRECTORY; 
    copyPath = malloc(strlen(restPath) + 1);
    if (copyPath == NULL)
       return MEMORY_ERROR;
@@ -111,9 +111,14 @@ static int FT_appendFiles(char* path, Node_T parent,
    dirToken = strtok(copyPath, "/");
 
    while (dirToken != NULL){
-      new = Node_addFile(dirToken, curr, contents, length);
+      temp = dirToken;
+      dirToken = strtok(NULL, "/");
+      if (dirToken == NULL)
+         new = Node_addFile(temp, curr, contents, length); 
+      else{
+         new = Node_create(temp, curr);
+      }
       newCount++;
-
       if(firstNew == NULL)
          firstNew = new;
       else{
@@ -132,7 +137,6 @@ static int FT_appendFiles(char* path, Node_T parent,
          return MEMORY_ERROR;
       }
       curr = new;
-      dirToken = strtok(NULL, "/");
    }
    free(copyPath);
    if(parent == NULL){
@@ -216,43 +220,14 @@ static int FT_insertRestOfPath(char* path, Node_T parent){
    }
 }
 
-
-
-
-
-
-
-/* static File_T FT_traverseFilePathFrom(char* path, Node_T curr){
-   File_T found;
-   Node_T curr;
-   size_t i,j;
-   assert(path != NULL);
-   if (curr == NULL)
-      return NULL;
-   else if (!strcmp(path, Node_getFilePath(found)))
-      return found;
-   else if(!strncmp(path, Node_getFilePath(found)), strlen(Node_getFilePath(curr))){
-            for (i = 0; i < Node_getNumChildren(curr); i++){
-               curr = FT_traverseFilePathFrom(path, Node_getChild(curr,i));
-               if (curr->files != NULL)
-                  for (j = 0; j < DynArray_getLength(curr->files){
-                        if (strcmp(path, Node_getFilePath(curr->files[j]->path))) 
-                            found = curr->files[j]; 
-                     }
-                  if (found != NULL) return found; 
-            }
-         }
-   }
-            
-} 
-*/
-
 static int FT_rmPathAt(char* path, Node_T curr){
    Node_T parent;
    assert(path != NULL);
    assert(curr != NULL);
    parent = Node_getParent(curr);
-
+   
+   if (Node_getStatus(curr) != FALSE)
+      return NOT_A_DIRECTORY; 
    if (!strcmp(path, Node_getPath(curr))){
       if(parent == NULL)
          root = NULL;
@@ -264,7 +239,7 @@ static int FT_rmPathAt(char* path, Node_T curr){
 
    }
    else
-      return NO_SUCH_PATH;
+      return NO_SUCH_PATH; 
 }
 
 
@@ -445,6 +420,7 @@ int FT_rmFile(char *path){
    curr = FT_traversePath(path);
    
    if (strcmp(path,Node_getPath(curr))) return NO_SUCH_PATH; 
+   else if (Node_getStatus(curr) != TRUE) return NOT_A_FILE; 
    else{
       parent = Node_getParent(curr);
       Node_unlinkChild(parent ,curr);
@@ -524,14 +500,12 @@ int FT_stat(char *path, boolean *type, size_t *length){
    if (strcmp(path, Node_getPath(curr)))
       return NO_SUCH_PATH; 
    if (Node_getStatus(curr) == FALSE)
-      type = FALSE;
+      *type = FALSE;
    else{
       *type = TRUE;
       *length = Node_getFileLength(curr); 
    }
    return SUCCESS; 
-   
-   
 }
 
 

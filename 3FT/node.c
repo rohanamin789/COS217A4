@@ -152,16 +152,16 @@ size_t Node_destroy(Node_T n) {
    Node_T c;
 
    assert(n != NULL);
-   
-   for(i = 0; i < DynArray_getLength(n->children); i++)
-   {
-      if (n->status == FALSE) {
-         c = DynArray_get(n->children, i);
-         count += Node_destroy(c);
+   if (Node_getStatus(n) != TRUE){
+      for(i = 0; i < DynArray_getLength(n->children); i++) {
+         if (n->status == FALSE) {
+            c = DynArray_get(n->children, i);
+            count += Node_destroy(c);
+         }
       }
-   }
-   if (n->children != NULL)
+      if (n->children != NULL)
       DynArray_free(n->children);
+   }
    free(n->path);
    free(n);
    count++;
@@ -191,13 +191,17 @@ const char* Node_getPath(Node_T n) {
 int Node_compare(Node_T node1, Node_T node2) {
    assert(node1 != NULL);
    assert(node2 != NULL);
-
+   if (Node_getStatus(node1) && !Node_getStatus(node2))
+      return -1;
+   if (!Node_getStatus(node1) && Node_getStatus(node2))
+       return 1;
    return strcmp(node1->path, node2->path);
 }
 
 /* see node.h for specification */
 size_t Node_getNumChildren(Node_T n) {
    assert(n != NULL);
+   if (n->status == TRUE) return 0;
    assert (n->children != NULL); 
 
    return DynArray_getLength(n->children);
