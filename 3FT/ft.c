@@ -7,8 +7,6 @@
 #include "a4def.h"
 #include "node.h"
 #include "dynarray.h"
-
-#include <assert.h>
 #include <string.h>
 #include <stdlib.h>
 
@@ -63,7 +61,8 @@ static void DT_strcatAccumulate(char* str, char* acc) {
 
 static int FT_linkParentToChild(Node_T parent, Node_T child){
    assert (parent != NULL);
-   assert(Node_getStatus(parent) != TRUE); 
+   if (Node_getStatus(parent) == TRUE)
+      return NOT_A_DIRECTORY;
 
    if(Node_linkChild(parent,child) != SUCCESS) {
       (void) Node_destroy(child);
@@ -97,6 +96,7 @@ static int FT_appendFiles(char* path, Node_T parent,
       if (root != NULL) {
             return CONFLICTING_PATH;
          }
+      else return CONFLICTING_PATH; 
    }
    else{
       if(!strcmp(path,Node_getPath(curr)))
@@ -145,10 +145,7 @@ static int FT_appendFiles(char* path, Node_T parent,
       else
          (void) Node_destroy(firstNew);
       return result;
-   }
-   
-         
-         
+   }        
 }
 
 static int FT_insertRestOfPath(char* path, Node_T parent){
@@ -156,12 +153,13 @@ static int FT_insertRestOfPath(char* path, Node_T parent){
    Node_T firstNew = NULL;
    Node_T new;
    char* copyPath;
-   char* restPath = path;
+   char* restPath; 
    char* dirToken;
    int result;
    size_t newCount = 0;
 
    assert (path != NULL);
+   restPath = path; 
    curr = parent; 
    if (curr == NULL) {
       if(root != NULL) {
@@ -173,7 +171,6 @@ static int FT_insertRestOfPath(char* path, Node_T parent){
          return ALREADY_IN_TREE;
       restPath += (strlen(Node_getPath(curr)) + 1);
    }
-   if (Node_getStatus(curr) == TRUE) return PARENT_CHILD_ERROR; 
    copyPath = malloc(strlen(restPath) + 1);
    if (copyPath == NULL)
       return MEMORY_ERROR;
@@ -249,6 +246,7 @@ static int FT_insertRestOfPath(char* path, Node_T parent){
             
 } 
 */
+
 static int FT_rmPathAt(char* path, Node_T curr){
    Node_T parent;
    assert(path != NULL);
@@ -285,7 +283,7 @@ static Node_T FT_traversePathFrom(char* path, Node_T curr) {
    else if(!strncmp(path, Node_getPath(curr), strlen(Node_getPath(curr)))){
       for(i = 0; i < Node_getNumChildren(curr); i++){
          found = FT_traversePathFrom(path, Node_getChild(curr, i));
-         if(found != NULL)
+         if(found != NULL) 
             return found;
       }
       return curr;
@@ -299,6 +297,21 @@ static Node_T FT_traversePath(char* path){
    return FT_traversePathFrom(path, root);
 }
 
+
+
+
+
+/*
+   Inserts a new directory into the tree at path, if possible.
+   Returns SUCCESS if the new directory is inserted.
+   Returns INITIALIZATION_ERROR if not in an initialized state.
+   Returns CONFLICTING_PATH if path is not underneath existing root.
+   Returns NOT_A_DIRECTORY if a proper prefix of path exists as a file.
+   Returns ALREADY_IN_TREE if the path already exists (as dir or file).
+   Returns PARENT_CHILD_ERROR if a new child cannot be added in path.
+   Returns MEMORY_ERROR if unable to allocate sufficient memory.
+*/
+
 int FT_insertDir(char *path){
    Node_T curr;
    int result;
@@ -311,6 +324,11 @@ int FT_insertDir(char *path){
    return result;
 }
 
+
+/*
+  Returns TRUE if the tree contains the full path parameter as a
+  directory and FALSE otherwise.
+*/
 
 boolean FT_containsDir(char *path){ 
    Node_T curr;
@@ -326,6 +344,7 @@ boolean FT_containsDir(char *path){
       return FALSE;
    else if(strcmp(path,Node_getPath(curr)))
       result = FALSE;
+   else if (Node_getStatus(curr) == FALSE) return FALSE; 
    else
       result = TRUE;
    return result; 
@@ -333,6 +352,13 @@ boolean FT_containsDir(char *path){
    
 }
 
+/*
+  Removes the FT hierarchy rooted at the directory path.
+  Returns SUCCESS if found and removed.
+  Returns INITIALIZATION_ERROR if not in an initialized state.
+  Returns NOT_A_DIRECTORY if path exists but is a file not a directory.
+  Returns NO_SUCH_PATH if the path does not exist in the hierarchy.
+*/
 
 
 int FT_rmDir(char *path){
@@ -354,7 +380,18 @@ int FT_rmDir(char *path){
 
 
 
-
+/*
+   Inserts a new file into the hierarchy at the given path, with the
+   given contents of size length bytes.
+   Returns SUCCESS if the new file is inserted.
+   Returns INITIALIZATION_ERROR if not in an initialized state.
+   Returns CONFLICTING_PATH if path is not underneath existing root, 
+                            or if path would be the FT root.
+   Returns NOT_A_DIRECTORY if a proper prefix of path exists as a file.
+   Returns ALREADY_IN_TREE if the path already exists (as dir or file).
+   Returns PARENT_CHILD_ERROR if a new child cannot be added in path.
+   Returns MEMORY_ERROR if unable to allocate sufficient memory.
+*/
 
 int FT_insertFile(char *path, void *contents, size_t length){
    Node_T curr;
@@ -367,6 +404,11 @@ int FT_insertFile(char *path, void *contents, size_t length){
    result = FT_appendFiles(path, curr, contents, length);
    return result; 
 }
+
+/*
+  Returns TRUE if the tree contains the full path parameter as a
+  file and FALSE otherwise.
+*/
 
 boolean FT_containsFile(char *path){
    Node_T curr;
@@ -385,7 +427,13 @@ boolean FT_containsFile(char *path){
    return result; 
 }
                
-
+/*
+  Removes the FT file at path.
+  Returns SUCCESS if found and removed.
+  Returns INITIALIZATION_ERROR if not in an initialized state.
+  Returns NOT_A_FILE if path exists but is a directory not a file.
+  Returns NO_SUCH_PATH if the path does not exist in the hierarchy.
+*/
 
 int FT_rmFile(char *path){
    Node_T parent;
@@ -402,6 +450,12 @@ int FT_rmFile(char *path){
                      
 }
 
+/*
+  Returns the contents of the file at the full path parameter.
+  Returns NULL if the path does not exist or is a directory.
+  Note: checking for a non-NULL return is not an appropriate
+  contains check -- the contents of a file may be NULL.
+*/
 
 void *FT_getFileContents(char *path){
    Node_T curr;
@@ -419,16 +473,24 @@ void *FT_getFileContents(char *path){
    return contents; 
    
 }
+
+/*
+  Replaces current contents of the file at the full path parameter with
+  the parameter newContents of size newLength.
+  Returns the old contents if successful. (Note: contents may be NULL.)
+  Returns NULL if the path does not already exist or is a directory.
+*/
+
 void *FT_replaceFileContents(char *path, void *newContents,
                              size_t newLength){
    Node_T curr;
    void* oldContents; 
    assert (path != NULL);
    if (!isInitialized)
-      return (void*) INITIALIZATION_ERROR;
+      return NULL;
    curr = FT_traversePath(path);
    if (curr == NULL)
-      return (void*) CONFLICTING_PATH;
+      return NULL;
    else if (Node_getStatus(curr) != TRUE) return NULL; 
    else if(strcmp(path,Node_getPath(curr))) return NULL; 
    else{
@@ -437,6 +499,17 @@ void *FT_replaceFileContents(char *path, void *newContents,
    }
    return oldContents; 
 }
+
+/*
+  Returns SUCCESS if path exists in the hierarchy,
+  returns NO_SUCH_PATH if it does not, and
+  returns INITIALIZATION_ERROR if the structure is not initialized.
+  When returning SUCCESSS,
+  if path is a directory: *type is set to FALSE, *length is unchanged
+  if path is a file: *type is set to TRUE, and
+  *length is set to the length of file's contents.
+  When returning a non-SUCCESS status, *type and *length are unchanged.
+*/
 
 int FT_stat(char *path, boolean *type, size_t *length){
    Node_T curr; 
@@ -458,6 +531,13 @@ int FT_stat(char *path, boolean *type, size_t *length){
 }
 
 
+/*
+  Sets the data structure to initialized status.
+  The data structure is initially empty.
+  Returns INITIALIZATION_ERROR if already initialized,
+  and SUCCESS otherwise.
+*/
+
 int FT_init(void){
    if (isInitialized)
       return INITIALIZATION_ERROR;
@@ -467,6 +547,13 @@ int FT_init(void){
    return SUCCESS; 
 }
 
+/*
+  Removes all contents of the data structure and
+  returns it to uninitialized status.
+  Returns INITIALIZATION_ERROR if not already initialized,
+  and SUCCESS otherwise.
+*/
+
 int FT_destroy(void){
    if(!isInitialized)
       return INITIALIZATION_ERROR;
@@ -475,6 +562,14 @@ int FT_destroy(void){
    isInitialized = 0;
    return SUCCESS; 
 }
+
+/*
+  Returns a string representation of the
+  data structure, or NULL if the structure is
+  not initialized or there is an allocation error.
+  Allocates memory for the returned string,
+  which is then owned by client!
+*/
 
 char *FT_toString(void){
    DynArray_T nodes;

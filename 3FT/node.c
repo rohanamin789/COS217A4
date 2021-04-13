@@ -53,14 +53,14 @@ static char* Node_buildPath(Node_T n, const char* dir) {
 
    if(path == NULL)
       return NULL;
-   *path = '\0';
+   *path = '\0'; 
 
    if(n != NULL) {
       strcpy(path, n->path);
       strcat(path, "/");
    }
    strcat(path, dir);
-
+   
    return path;
 }
 
