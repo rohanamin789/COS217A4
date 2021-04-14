@@ -13,13 +13,13 @@ clean:
 clobber: clean
 	rm -f ft_client.o dynarray.o *~
 
-ft: dynarray.o ft.o ft_client.o node.o checkerDT.o
+ft: dynarray.o ft.o ft_client.o node.o
 	$(CC) -g dynarray.o ft.o ft_client.o node.o -o ft
 
 dynarray.o: dynarray.c dynarray.h
 	$(CC) -c dynarray.c
 
-ft.o: ft.c ft.h dynarray.h checkerDT.h node.h a4def.h
+ft.o: ft.c ft.h dynarray.h node.h a4def.h
 	$(CC) -c ft.c
 
 node.o: node.c node.h

@@ -46,11 +46,9 @@ Node_T Node_addFile(const char* dir, Node_T parent,
                     void* contents, size_t length); 
 
 
-/*
-  Destroys the entire hierarchy of nodes rooted at n,
+/* Destroys the entire hierarchy of nodes rooted at n,
   including n itself.
-  Returns the number of nodes destroyed.
-*/
+  Returns the number of nodes destroyed.*/
 size_t Node_destroy(Node_T n);
 
 /* Changes the file contents of Node_T n by replacing it with newContents
@@ -69,14 +67,10 @@ void *Node_getFileContents(Node_T n);
 size_t Node_getFileLength(Node_T n);
 
 
-/*
-   Returns n's path.
-*/
+/* Returns n's path.*/
 const char* Node_getPath(Node_T n);
 
-/*
-  Returns the number of child directories n has.
-*/
+/* Returns the number of child directories n has. */
 size_t Node_getNumChildren(Node_T n);
 
 /*

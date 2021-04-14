@@ -73,7 +73,8 @@ static char* Node_buildPath(Node_T n, const char* dir) {
 /*
   Compares node1 and node2 based on their paths.
   Returns <0, 0, or >0 if node1 is less than,
-  equal to, or greater than node2, respectively.
+  equal to, or greater than node2, respectively. Places file in
+  front of directories.
 */
 static int Node_compare(Node_T node1, Node_T node2) {
    assert(node1 != NULL);

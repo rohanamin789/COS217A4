@@ -103,6 +103,7 @@ static void FT_removePathFrom(Node_T curr) {
    their fields, returns MEMORY_ERROR
    If there is an error linking any of the new nodes,
    returns PARENT_CHILD_ERROR
+   If there is a path issue, returns CONFLICTING_PATH
    Otherwise, returns SUCCESS
 */
 static int FT_appendFiles(char* path, Node_T parent,
@@ -120,10 +121,8 @@ static int FT_appendFiles(char* path, Node_T parent,
    assert (path != NULL);
    curr = parent; 
    if (curr == NULL) {
-      if (root != NULL) {
-            return CONFLICTING_PATH;
-         }
-      else return CONFLICTING_PATH; 
+      /* File cannot be root */ 
+      return CONFLICTING_PATH;
    }
    else{
       /* Checks if path is already in Tree */ 
