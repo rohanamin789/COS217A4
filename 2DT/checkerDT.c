@@ -135,7 +135,7 @@ static boolean CheckerDT_treeCountCheck(Node_T n, size_t count) {
    Returns TRUE if lexicographic order is followed, FALSE 
    otherwise.
 */
-static size_t CheckerDT_orderCheck(Node_T n) {
+static boolean CheckerDT_orderCheck(Node_T n) {
    size_t c;
    int compare;
 
@@ -157,14 +157,14 @@ static size_t CheckerDT_orderCheck(Node_T n) {
 
       /* Run pre-order traversal */
       for(c = 0; c < Node_getNumChildren(n); c++) {
-         CheckerDT_orderCheck(Node_getChild(n, c));
+         if (!CheckerDT_orderCheck(Node_getChild(n, c))) return FALSE;
       }
    }
    return TRUE;
 }
 
 /*
-   Calls multiple other checks on the tree rooted at x.
+   Calls multiple other checks on the tree rooted at x with count.
    Returns FALSE if any test fails, and TRUE otherwise.
 */
 static boolean CheckerDT_treeFullCheck(Node_T n, size_t count) {
