@@ -11,8 +11,14 @@
 #include <stdlib.h>
 
 
+/* A File Tree is an AO with 3 state variables: */
+/* a flag for if it is in an initialized state (TRUE) or not (FALSE) */
 static boolean isInitialized;
+
+/* a pointer to the root node in the hierarchy */
 static Node_T root;
+
+/* a counter of the number of nodes in the hierarchy */
 static size_t count;
 
 
@@ -40,7 +46,7 @@ static size_t FT_preOrderTraversal(Node_T n, DynArray_T d, size_t i) {
    to accumulate a string length, rather than returning the length of
    str, and also always adds one more in addition to str's length.
 */
-static void DT_strlenAccumulate(char* str, size_t* pAcc) {
+static void FT_strlenAccumulate(char* str, size_t* pAcc) {
    assert(pAcc != NULL);
 
    if(str != NULL)
@@ -52,7 +58,7 @@ static void DT_strlenAccumulate(char* str, size_t* pAcc) {
    order, appending str onto acc, and also always adds a newline at
    the end of the concatenated string.
 */
-static void DT_strcatAccumulate(char* str, char* acc) {
+static void FT_strcatAccumulate(char* str, char* acc) {
    assert(acc != NULL);
 
    if(str != NULL)
@@ -120,12 +126,17 @@ static int FT_appendFiles(char* path, Node_T parent,
       else return CONFLICTING_PATH; 
    }
    else{
+      /* Checks if path is already in Tree */ 
       if(!strcmp(path,Node_getPath(curr)))
          return ALREADY_IN_TREE;
          restPath += (strlen(Node_getPath(curr)) + 1);
    }
+
+   /* Checks if Node is a File */ 
    if (Node_getStatus(curr) == TRUE) return NOT_A_DIRECTORY; 
-   copyPath = malloc(strlen(restPath) + 1);
+   copyPath = (char*) malloc(strlen(restPath) + 1);
+
+   /* Returns memory error if memory allocation fails */ 
    if (copyPath == NULL)
       return MEMORY_ERROR;
    strcpy(copyPath, restPath);
@@ -135,10 +146,12 @@ static int FT_appendFiles(char* path, Node_T parent,
       temp = dirToken;
       dirToken = strtok(NULL, "/");
       /* When adding a file, only the last token
-         in the directory is the file */
+         in the path is the file */
       if (dirToken == NULL)
          new = Node_addFile(temp, curr, contents, length); 
       else{
+         /* Creates directories rather than files
+            leading up to the final token */
          new = Node_create(temp, curr);
       }
       newCount++;
@@ -153,7 +166,7 @@ static int FT_appendFiles(char* path, Node_T parent,
             return result;
          }
       }
-
+      /* Returns memory error if memory allocation fails */
       if (new == NULL) {
          (void) Node_destroy(firstNew); 
          free(copyPath);
@@ -166,6 +179,7 @@ static int FT_appendFiles(char* path, Node_T parent,
       return INITIALIZATION_ERROR;
    }
    else{
+      /* Adds new Node to file tree hierarchy */ 
       result = FT_linkParentToChild(parent, firstNew);
       if (result == SUCCESS)
          count += newCount;
@@ -196,18 +210,22 @@ static int FT_insertRestOfPath(char* path, Node_T parent){
 
    assert (path != NULL);
    restPath = path; 
-   curr = parent; 
+   curr = parent;
+   /* Returns error if there is a conflicting path */
    if (curr == NULL) {
       if(root != NULL) {
          return CONFLICTING_PATH;
       }
    }
    else{
+      /* Checks if path is already in Tree */ 
       if(!strcmp(path,Node_getPath(curr)))
          return ALREADY_IN_TREE;
       restPath += (strlen(Node_getPath(curr)) + 1);
    }
    copyPath = malloc(strlen(restPath) + 1);
+
+   /* Returns MEMORY_ERROR if memory allocation fails */ 
    if (copyPath == NULL)
       return MEMORY_ERROR;
    strcpy(copyPath, restPath);
@@ -220,6 +238,7 @@ static int FT_insertRestOfPath(char* path, Node_T parent){
          firstNew = new;
       else {
          result = FT_linkParentToChild(curr, new);
+         /* Reverts changes if the node isn't successfully linked */
          if(result != SUCCESS) {
             (void) Node_destroy(new);
             (void) Node_destroy(firstNew);
@@ -235,14 +254,18 @@ static int FT_insertRestOfPath(char* path, Node_T parent){
       curr = new;
       dirToken = strtok(NULL, "/");
    }
+   /* Frees the memory allocated for local variable */ 
    free(copyPath);
 
    if(parent == NULL){
+      /* If the structure is initialized but the new path 
+         is the first element, puts the Node at the root */ 
       root = firstNew;
       count = newCount;
       return SUCCESS;
    }
    else {
+      /* Links new node to parent if the Node is not the root */
       result = FT_linkParentToChild(parent, firstNew);
       if(result == SUCCESS)
          count += newCount;
@@ -343,7 +366,6 @@ int FT_insertDir(char *path){
       return INITIALIZATION_ERROR;
    curr = FT_traversePath(path);
    result = FT_insertRestOfPath(path,curr);
-   /* assert( CHECKERDT_ISVALID); */ 
    return result;
 }
 
@@ -358,20 +380,23 @@ boolean FT_containsDir(char *path){
    boolean result;
    assert(path != NULL);
 
-   if(!isInitialized)
-      return FALSE;
+   if(!isInitialized){
+      result = FALSE; 
+      return result;
+   }
 
    curr = FT_traversePath(path);
 
-   if(curr == NULL)
-      return FALSE;
+   if(curr == NULL){
+      result = FALSE; 
+      return result;
+   }
    else if(strcmp(path,Node_getPath(curr)))
       result = FALSE;
-   else if (Node_getStatus(curr) != FALSE) return FALSE; 
+   else if (Node_getStatus(curr) != FALSE) result = FALSE; 
    else
       result = TRUE;
-   return result; 
-   /* assert(CHECKERFT_ISVALID); */
+   return result;   
    
 }
 
@@ -396,8 +421,6 @@ int FT_rmDir(char *path){
       result = NO_SUCH_PATH;
    else
       result = FT_rmPathAt(path, curr);
-   /* assert(CHECKER FT); */
-
    return result; 
 }
 
@@ -465,6 +488,7 @@ boolean FT_containsFile(char *path){
 int FT_rmFile(char *path){
    Node_T parent;
    Node_T curr;
+   assert (path != NULL); 
    curr = FT_traversePath(path);
    
    if (strcmp(path,Node_getPath(curr))) return NO_SUCH_PATH; 
@@ -495,7 +519,8 @@ void *FT_getFileContents(char *path){
 
    if (curr == NULL)
       contents = NULL;
-   else if(strcmp(path, Node_getPath(curr)));
+   else if (Node_getStatus(curr) != TRUE)
+      contents = NULL;  
    else
       contents = Node_getFileContents(curr);
    return contents; 
@@ -518,9 +543,9 @@ void *FT_replaceFileContents(char *path, void *newContents,
       return NULL;
    curr = FT_traversePath(path);
    if (curr == NULL)
-      return NULL;
-   else if (Node_getStatus(curr) != TRUE) return NULL; 
-   else if(strcmp(path,Node_getPath(curr))) return NULL; 
+      oldContents = NULL; 
+   else if (Node_getStatus(curr) != TRUE) oldContents = NULL; 
+   else if(strcmp(path,Node_getPath(curr))) oldContents = NULL; 
    else{
       oldContents = Node_getFileContents(curr); 
       Node_changeFileContents(curr, newContents, newLength); 
@@ -602,28 +627,24 @@ char *FT_toString(void){
    size_t totalStrlen = 1;
    char* result = NULL;
 
-   /* assert(CheckerDT_isValid(isInitialized,root,count)); */
-
    if(!isInitialized)
       return NULL;
 
    nodes = DynArray_new(count);
    (void) FT_preOrderTraversal(root, nodes, 0);
 
-   DynArray_map(nodes, (void (*)(void *, void*)) DT_strlenAccumulate, (void*) &totalStrlen);
+   DynArray_map(nodes, (void (*)(void *, void*)) FT_strlenAccumulate, (void*) &totalStrlen);
 
    result = malloc(totalStrlen);
    if(result == NULL) {
       DynArray_free(nodes);
-      /* assert(CheckerDT_isValid(isInitialized,root,count)); */
       return NULL;
    }
    *result = '\0';
 
-   DynArray_map(nodes, (void (*)(void *, void*)) DT_strcatAccumulate, (void *) result);
+   DynArray_map(nodes, (void (*)(void *, void*)) FT_strcatAccumulate, (void *) result);
 
    DynArray_free(nodes);
-   /* assert(CheckerDT_isValid(isInitialized,root,count)); */
    return result;
 }
    

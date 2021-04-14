@@ -28,9 +28,23 @@ typedef struct node* Node_T;
    do not point to any children.
 */
 
+
+Node_T Node_create(const char* dir, Node_T parent);
+
+/*
+   Given a parent node and a file path dir, returns a new
+   Node_T or NULL if any allocation error occurs in creating
+   the node or its fields.
+   The new structure is initialized to have its path as the parent's
+   path (if it exists) prefixed to the directory string parameter,
+   separated by a slash. It is also initialized with its parent link
+   as the parent parameter value, but the parent itself is not changed
+   to link to the new node.  The file represented by Node_T has 
+   contents (contents) and length (length) */
+
 Node_T Node_addFile(const char* dir, Node_T parent,
                     void* contents, size_t length); 
-Node_T Node_create(const char* dir, Node_T parent);
+
 
 /*
   Destroys the entire hierarchy of nodes rooted at n,
@@ -39,21 +53,21 @@ Node_T Node_create(const char* dir, Node_T parent);
 */
 size_t Node_destroy(Node_T n);
 
-void Node_changeFileContents(Node_T n,
-                             void* newContents, size_t newLength); 
+/* Changes the file contents of Node_T n by replacing it with newContents
+   and changing the file's length to newLength */ 
 
+void Node_changeFileContents(Node_T n,
+                             void* newContents, size_t newLength);
+
+/* Returns TRUE (1) if the Node_T n is a File and FALSE (0)  if not */ 
 boolean Node_getStatus(Node_T n);
 
-void *Node_getFileContents(Node_T n); 
+/* Returns a void* with the contents of file stored in Node_T n */ 
+void *Node_getFileContents(Node_T n);
 
+/* Returns a size_t of the length of the file stored in Node_T n */
 size_t Node_getFileLength(Node_T n);
 
-/*
-  Compares node1 and node2 based on their paths.
-  Returns <0, 0, or >0 if node1 is less than,
-  equal to, or greater than node2, respectively.
-*/
-int Node_compare(Node_T node1, Node_T node2);
 
 /*
    Returns n's path.
@@ -64,16 +78,6 @@ const char* Node_getPath(Node_T n);
   Returns the number of child directories n has.
 */
 size_t Node_getNumChildren(Node_T n);
-
-/*
-   Returns 1 if n has a child directory with path,
-   0 if it does not have such a child, and -1 if
-   there is an allocation error during search.
-   If n does have such a child, and childID is not NULL, store the
-   child's identifier in *childID. If n does not have such a child,
-   store the identifier that such a child would have in *childID.
-*/
-int Node_hasChild(Node_T n, const char* path, size_t* childID);
 
 /*
    Returns the child node of n with identifier childID, if one exists,

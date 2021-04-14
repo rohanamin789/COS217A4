@@ -14,7 +14,7 @@ clobber: clean
 	rm -f ft_client.o dynarray.o *~
 
 ft: dynarray.o ft.o ft_client.o node.o checkerDT.o
-	$(CC) -g dynarray.o ft.o ft_client.o node.o checkerDT.o -o ft
+	$(CC) -g dynarray.o ft.o ft_client.o node.o -o ft
 
 dynarray.o: dynarray.c dynarray.h
 	$(CC) -c dynarray.c
@@ -24,9 +24,6 @@ ft.o: ft.c ft.h dynarray.h checkerDT.h node.h a4def.h
 
 node.o: node.c node.h
 	$(CC) -c node.c
-
-checkerDT.o: checkerDT.c checkerDT.h
-	$(CC) -c checkerDT.c
 
 ft_client.o: ft_client.c ft.h
 	$(CC) -c ft_client.c

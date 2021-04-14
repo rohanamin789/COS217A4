@@ -362,7 +362,8 @@ int DynArray_search(DynArray_T oDynArray,
    addresses ppvLo...ppvHi for pvSoughtElement.
    *pfCompare must return <0, 0, or >0 depending upon whether
    *pvElement1 is less than, equal to, or greater than *pvElement2,
-   respectively. */
+   respectively. 
+   Uses pppvInsert as a pointer to the element of ppvArray. */
 
 static const void **DynArray_bsearchHelp(
    void *pvSoughtElement,
@@ -411,6 +412,8 @@ int DynArray_bsearch(DynArray_T oDynArray,
    assert(puIndex != NULL);
    assert(pfCompare != NULL);
    assert(DynArray_isValid(oDynArray));
+   /* To avoid using a variable before its definition */
+   ppvInsert = NULL; 
 
    if (oDynArray->uLength == 0) {
       *puIndex = 0;
